@@ -1,115 +1,150 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Head from 'next/head';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import Services from '../components/Services';
+import TeamMember from '../components/TeamMember';
+import Footer from '../components/Footer';
 
 export default function Home() {
+  // Team members data from the original ALA app
+  const teamMembers = [
+    {
+      id: 1,
+      name: "Mr. Punit Dutt Tyagi",
+      position: "Senior Partner",
+      qualifications: [
+        "35+ years of legal experience",
+        "Expert in Corporate & Commercial Law",
+        "Specialist in International/Domestic Arbitration",
+        "Telecom and Fertilizer Sector Advisory"
+      ],
+      description: "Mr. Punit Dutt Tyagi brings over three decades of exceptional legal expertise to our firm. As a Senior Partner, he specializes in complex corporate and commercial law matters, with particular strength in both international and domestic arbitration. His extensive experience in the telecom and fertilizer sectors makes him a sought-after advisor for regulatory compliance and strategic business decisions. His deep understanding of commercial disputes and arbitration procedures has helped numerous clients navigate complex legal challenges successfully.",
+      image: "/hero.png"
+    },
+    {
+      id: 2,
+      name: "Mrs. Smriti Sahay",
+      position: "Senior Partner",
+      qualifications: [
+        "Chartered Accountant (CA)",
+        "Company Secretary (CS)",
+        "Master of Laws (LLM)",
+        "8+ years of diversified legal experience"
+      ],
+      description: "Mrs. Smriti Sahay is a highly qualified legal professional with a unique combination of CA, CS, and LLM credentials. She appears before the Delhi High Court, Supreme Court, and various tribunals, handling complex matters related to taxation (direct, indirect, PMLA, benami), corporate laws, and constitutional issues. Her expertise extends to NCLT/NCLAT proceedings under IBC, consumer disputes up to NCDRC, and civil recovery matters. Her multidisciplinary background enables her to provide comprehensive legal solutions with a strong foundation in financial and corporate governance.",
+      image: "/hero.png"
+    },
+    {
+      id: 3,
+      name: "Ms. Pragati Singh",
+      position: "Partner",
+      qualifications: [
+        "B.A.LLB (Hons.) from Symbiosis Law School, Pune",
+        "Expert in Corporate Arbitration",
+        "Specialist in Mergers & Acquisitions",
+        "Insolvency and Consumer Laws Practice"
+      ],
+      description: "Ms. Pragati Singh is a dynamic Partner who graduated with honors from the prestigious Symbiosis Law School, Pune. She specializes in corporate arbitration, complex litigation, mergers and acquisitions, insolvency proceedings, and consumer law matters. Her strategic approach to legal problem-solving and her ability to handle sophisticated commercial transactions make her an invaluable asset to clients seeking comprehensive legal representation in corporate matters.",
+      image: "/hero.png"
+    },
+    {
+      id: 4,
+      name: "Ms. Aditi Kashyap",
+      position: "Associate",
+      qualifications: [
+        "Graduate from Delhi University",
+        "3 years of litigation experience",
+        "Expert in Commercial Litigation",
+        "Specialist in White-collar Crime Defense"
+      ],
+      description: "Ms. Aditi Kashyap is a skilled associate with a strong academic foundation from Delhi University and three years of practical legal experience. She specializes in commercial litigation, arbitration proceedings, white-collar crime defense, and matrimonial disputes. Her meticulous approach to case preparation and her ability to handle sensitive family matters with empathy and professionalism have earned her recognition among clients and peers alike.",
+      image: "/hero.png"
+    },
+    {
+      id: 5,
+      name: "Ms. Aishwarya Singh",
+      position: "Associate",
+      qualifications: [
+        "LLB from KLE Society's Law College, Bengaluru",
+        "Corporate and Civil Litigation Expert",
+        "Taxation and Arbitration Specialist",
+        "Company Law and Banking Law Practice"
+      ],
+      description: "Ms. Aishwarya Singh is a versatile legal professional who graduated from KLE Society's Law College, Bengaluru. She brings expertise in corporate and civil litigation, taxation matters, arbitration, company law, and banking law. Her comprehensive understanding of corporate governance and regulatory compliance, combined with her litigation skills, makes her particularly effective in handling complex business disputes and ensuring legal compliance for corporate clients.",
+      image: "/hero.png"
+    },
+    {
+      id: 6,
+      name: "Mr. Saurav Sharma",
+      position: "Senior Associate",
+      qualifications: [
+        "Company Secretary (CS)",
+        "Bachelor of Laws (LLB)",
+        "8+ years of specialized experience",
+        "Expert in Regulatory Compliance"
+      ],
+      description: "Mr. Saurav Sharma combines his CS and LLB qualifications with over eight years of specialized experience in consumer grievances, commercial disputes, and indirect taxation. He regularly appears before SEBI, SAT, RERA, DRT, DRAT, and NGT, making him exceptionally well-versed in regulatory matters across multiple sectors. His expertise in navigating complex regulatory frameworks and his track record in consumer protection makes him a trusted advisor for businesses seeking compliance solutions.",
+      image: "/hero.png"
+    },
+    {
+      id: 7,
+      name: "Mr. Malav Goswami",
+      position: "Tax Associate",
+      qualifications: [
+        "B.Com (Hons.) from Delhi University",
+        "Bachelor of Laws (LLB)",
+        "Direct Taxation Specialist",
+        "Expert in Tax Litigation"
+      ],
+      description: "Mr. Malav Goswami brings a strong foundation in commerce and law, having completed his B.Com (Hons.) and LLB from Delhi University. He specializes in direct taxation matters, tax litigation, and departmental proceedings. His combination of commercial acumen and legal expertise enables him to provide strategic tax planning advice while effectively representing clients in complex tax disputes and assessments before various tax authorities.",
+      image: "/hero.png"
+    },
+    {
+      id: 8,
+      name: "Mr. Keshav Mishra",
+      position: "Junior Associate",
+      qualifications: [
+        "LLB (2023)",
+        "Civil & Criminal Litigation",
+        "Intellectual Property Compliance",
+        "Practice before Delhi Courts"
+      ],
+      description: "Mr. Keshav Mishra is our promising junior associate who completed his LLB in 2023 and has quickly established himself in civil and criminal litigation. He specializes in intellectual property compliance matters and actively practices before the Delhi Courts. Despite being early in his career, his dedication to legal research, attention to detail, and commitment to client service demonstrate his potential for significant contributions to complex legal matters.",
+      image: "/hero.png"
+    },
+    {
+      id: 9,
+      name: "Ms. Versha Jha",
+      position: "Trainee Associate",
+      qualifications: [
+        "B.A. LL.B. (Taxation Hons.) from KIIT School of Law (2025)",
+        "Direct and Indirect Taxation Focus",
+        "Commercial and Civil Litigation Training",
+        "Arbitration Practice"
+      ],
+      description: "Ms. Versha Jha is our talented trainee associate who completed her B.A. LL.B. (Taxation Hons.) from KIIT School of Law in 2025. With specialized honors in taxation, she focuses on direct and indirect taxation matters, commercial and civil litigation, and arbitration proceedings. Her fresh perspective, combined with strong academic credentials in taxation law, makes her a valuable addition to our tax practice team as she develops her expertise under senior guidance.",
+      image: "/hero.png"
+    }
+  ];
+
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+    <>
+      <Head>
+        <title>Alka Law Associates - Legal Excellence, Delivered</title>
+        <meta name="description" content="ALA is a boutique law firm specializing in Direct and Indirect Taxation, with a strong pan-India presence across all Courts and Tribunals." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+      </Head>
+
+      <main>
+        <Navbar />
+        <Hero id="home" />
+        <Services id="services" />
+        <TeamMember id="team" teamMembers={teamMembers} />
+        <Footer id="footer" />
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
