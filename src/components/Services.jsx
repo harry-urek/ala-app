@@ -5,16 +5,16 @@ import Image from 'next/image';
 const Services = ({ id }) => {
     const [hoveredService, setHoveredService] = useState(null);
 
-    // Comprehensive service categories with detailed services from the provided list
+    // Comprehensive service categories with subtle, theme-matching colors
     const serviceCategories = [
         {
             id: 'taxes',
             name: 'TAXATION',
             title: 'Taxes',
             icon: '/taxes.png',
-            color: 'from-emerald-100 to-emerald-200',
-            hoverColor: 'from-emerald-200 to-emerald-300',
-            textColor: 'text-emerald-800',
+            color: 'from-[#f5ebe0] to-[#f0e6d2]',
+            hoverColor: 'from-[#f0e6d2] to-[#ede1d1]',
+            textColor: 'text-[#2c2c2c]',
             number: '01',
             services: [
                 {
@@ -42,9 +42,9 @@ const Services = ({ id }) => {
             name: 'COMPLIANCE',
             title: 'Compliance',
             icon: '/Compliance.png',
-            color: 'from-blue-100 to-blue-200',
-            hoverColor: 'from-blue-200 to-blue-300',
-            textColor: 'text-blue-800',
+            color: 'from-[#e8f4fd] to-[#ddeef8]',
+            hoverColor: 'from-[#ddeef8] to-[#d4e7f2]',
+            textColor: 'text-[#2c2c2c]',
             number: '02',
             services: [
                 {
@@ -62,9 +62,9 @@ const Services = ({ id }) => {
             name: 'LITIGATION',
             title: 'Litigation',
             icon: '/litigation.png',
-            color: 'from-red-100 to-red-200',
-            hoverColor: 'from-red-200 to-red-300',
-            textColor: 'text-red-800',
+            color: 'from-[#f8f3f0] to-[#f3ede8]',
+            hoverColor: 'from-[#f3ede8] to-[#ede7e0]',
+            textColor: 'text-[#2c2c2c]',
             number: '03',
             services: [
                 {
@@ -82,9 +82,9 @@ const Services = ({ id }) => {
             name: 'CORPORATE',
             title: 'Corporate',
             icon: '/corporate.png',
-            color: 'from-green-100 to-green-200',
-            hoverColor: 'from-green-200 to-green-300',
-            textColor: 'text-green-800',
+            color: 'from-[#f1f5f1] to-[#ecf0ec]',
+            hoverColor: 'from-[#ecf0ec] to-[#e6eae6]',
+            textColor: 'text-[#2c2c2c]',
             number: '04',
             services: [
                 {
@@ -108,9 +108,9 @@ const Services = ({ id }) => {
             name: 'COMMERCIAL',
             title: 'Commercial',
             icon: '/commercial.png',
-            color: 'from-amber-100 to-amber-200',
-            hoverColor: 'from-amber-200 to-amber-300',
-            textColor: 'text-amber-800',
+            color: 'from-[#faf6f2] to-[#f5f1ed]',
+            hoverColor: 'from-[#f5f1ed] to-[#f0ece8]',
+            textColor: 'text-[#2c2c2c]',
             number: '05',
             services: [
                 {
@@ -142,9 +142,9 @@ const Services = ({ id }) => {
             name: 'IP & TECH',
             title: 'IP Tech',
             icon: '/IPTECH.png',
-            color: 'from-purple-100 to-purple-200',
-            hoverColor: 'from-purple-200 to-purple-300',
-            textColor: 'text-purple-800',
+            color: 'from-[#f6f4f8] to-[#f1eef3]',
+            hoverColor: 'from-[#f1eef3] to-[#ece8ee]',
+            textColor: 'text-[#2c2c2c]',
             number: '06',
             services: [
                 {
@@ -160,9 +160,9 @@ const Services = ({ id }) => {
             name: 'REGULATORY',
             title: 'Regulatory',
             icon: '/regulatory.png',
-            color: 'from-indigo-100 to-indigo-200',
-            hoverColor: 'from-indigo-200 to-indigo-300',
-            textColor: 'text-indigo-800',
+            color: 'from-[#f4f6f8] to-[#eff1f3]',
+            hoverColor: 'from-[#eff1f3] to-[#eaeced]',
+            textColor: 'text-[#2c2c2c]',
             number: '07',
             services: [
                 {
@@ -177,14 +177,14 @@ const Services = ({ id }) => {
     ];
 
     return (
-        <section id={id} className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden py-20">
+        <section id={id} className="min-h-screen bg-gradient-to-br from-[#f8f9fa] to-[#f5ebe0] relative overflow-hidden py-20 md:pt-32">
             <div className="max-w-7xl mx-auto px-4 relative z-10">
                 {/* Section Header */}
                 <div className="mb-16 text-center">
-                    <h2 className="text-5xl font-semibold text-gray-800 mb-6 tracking-tight dm-serif-text-regular">
+                    <h2 className="text-5xl font-semibold text-[#2c2c2c] mb-6 tracking-tight dm-serif-text-regular">
                         Our Legal Services
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    <p className="text-xl text-[#666] max-w-4xl mx-auto leading-relaxed">
                         Comprehensive legal solutions across all practice areas
                     </p>
                 </div>
@@ -197,56 +197,70 @@ const Services = ({ id }) => {
                         return (
                             <div
                                 key={category.id}
-                                className={`relative rounded-3xl shadow-lg transition-all duration-700 ease-in-out bg-gradient-to-br group overflow-hidden border border-white/20 cursor-pointer hover:shadow-2xl hover:-translate-y-2 ${
+                                className={`relative rounded-2xl shadow-md transition-all duration-700 ease-out bg-gradient-to-br group overflow-hidden border border-[#d6ccc2]/30 cursor-pointer hover:shadow-lg hover:-translate-y-1 ${
                                     (isHovered ? category.hoverColor : category.color)
                                 } ${isHovered ? 'p-6 min-h-[500px]' : 'p-8 h-64'}`}
                                 onMouseEnter={() => setHoveredService(category.id)}
                                 onMouseLeave={() => setHoveredService(null)}
                             >
                                 {/* Background Pattern */}
-                                <div className="absolute inset-0 opacity-5">
-                                    <div className="absolute top-0 right-0 w-24 h-24 bg-white rounded-full transform translate-x-8 -translate-y-8"></div>
-                                    <div className="absolute bottom-0 left-0 w-16 h-16 bg-white rounded-full transform -translate-x-4 translate-y-4"></div>
+                                <div className="absolute inset-0 opacity-5 transition-opacity duration-700 ease-out">
+                                    <div className="absolute top-0 right-0 w-16 h-16 bg-[#2c2c2c] rounded-full transform translate-x-6 -translate-y-6 transition-transform duration-700 ease-out"></div>
+                                    <div className="absolute bottom-0 left-0 w-12 h-12 bg-[#2c2c2c] rounded-full transform -translate-x-3 translate-y-3 transition-transform duration-700 ease-out"></div>
                                 </div>
 
                                 {/* Number */}
-                                <div className={`absolute top-4 left-4 text-6xl font-bold opacity-10 ${category.textColor}`}>
+                                <div className={`absolute top-4 left-4 text-4xl font-light opacity-20 ${category.textColor} dm-serif-text-regular transition-all duration-700 ease-out ${
+                                    isHovered ? 'scale-90 opacity-10' : 'scale-100 opacity-20'
+                                }`}>
                                     {category.number}
                                 </div>
 
                                 {/* Content */}
                                 <div className="relative z-10">
                                     {/* Icon */}
-                                    <div className="flex justify-center mb-6">
-                                        <div className="w-20 h-20 relative group-hover:scale-110 transition-transform duration-300">
+                                    <div className="flex justify-center mb-6 transition-all duration-700 ease-out">
+                                        <div className={`w-16 h-16 relative transition-all duration-700 ease-out ${
+                                            isHovered ? 'scale-95 -translate-y-1' : 'scale-100 translate-y-0'
+                                        }`}>
                                             <Image
                                                 src={category.icon}
                                                 alt={category.name}
                                                 fill
-                                                className="object-contain filter drop-shadow-lg"
+                                                className="object-contain filter drop-shadow-sm transition-all duration-700 ease-out"
                                             />
                                         </div>
                                     </div>
 
                                     {/* Category Name */}
-                                    <h3 className={`text-2xl font-bold text-center mb-4 dm-serif-text-regular ${category.textColor}`}>
+                                    <h3 className={`text-xl font-semibold text-center mb-4 dm-serif-text-regular ${category.textColor} transition-all duration-700 ease-out ${
+                                        isHovered ? 'transform -translate-y-2 scale-95' : 'transform translate-y-0 scale-100'
+                                    }`}>
                                         {category.title}
                                     </h3>
 
                                     {/* Expanded Content on Hover */}
-                                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                                    <div className={`transition-all duration-800 ease-in-out overflow-hidden ${
                                         (isHovered ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0')
                                     }`}>
-                                        <div className="space-y-3 mt-6 max-h-[500px] overflow-y-auto">
+                                        <div className="space-y-3 mt-6 max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#d6ccc2] scrollbar-track-transparent">
                                             {category.services.map((service, serviceIndex) => (
-                                                <div key={serviceIndex} className="bg-white/90 rounded-lg p-3 backdrop-blur-sm shadow-sm">
-                                                    <h4 className={`font-semibold mb-2 text-sm ${category.textColor}`}>
+                                                <div 
+                                                    key={serviceIndex} 
+                                                    className={`bg-white/70 rounded-lg p-3 backdrop-blur-sm shadow-sm border border-[#d6ccc2]/20 transition-all duration-700 ease-out ${
+                                                        isHovered ? 'transform translate-y-0 opacity-100' : 'transform translate-y-4 opacity-0'
+                                                    }`}
+                                                    style={{ 
+                                                        transitionDelay: isHovered ? `${serviceIndex * 100}ms` : '0ms' 
+                                                    }}
+                                                >
+                                                    <h4 className={`font-medium mb-2 text-sm ${category.textColor} transition-colors duration-500 ease-out`}>
                                                         {service.name}
                                                     </h4>
                                                     <ul className="space-y-1">
                                                         {service.details.map((detail, detailIndex) => (
-                                                            <li key={detailIndex} className="text-xs text-gray-700 flex items-start leading-relaxed">
-                                                                <span className="mr-2 mt-1 text-xs flex-shrink-0">•</span>
+                                                            <li key={detailIndex} className="text-xs text-[#666] flex items-start leading-relaxed transition-colors duration-500 ease-out">
+                                                                <span className="mr-2 mt-1 text-xs flex-shrink-0 text-[#2c2c2c] transition-colors duration-500 ease-out">•</span>
                                                                 <span className="flex-1">{detail}</span>
                                                             </li>
                                                         ))}
@@ -265,15 +279,15 @@ const Services = ({ id }) => {
 
                 {/* Additional Info */}
                 <div className="mt-16 text-center">
-                    <p className="text-gray-600 max-w-2xl mx-auto">
-                        Hover over each service category to explore our comprehensive offerings and expertise in each practice area.
+                    <p className="text-[#666] text-lg">
+                        Hover over each service category to explore our comprehensive offerings
                     </p>
                 </div>
             </div>
 
             {/* Background decorative elements */}
-            <div className="absolute top-1/4 left-10 w-64 h-64 bg-blue-200/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-purple-200/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/4 left-10 w-64 h-64 bg-[#d6ccc2]/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#f5ebe0]/20 rounded-full blur-3xl"></div>
         </section>
     );
 };

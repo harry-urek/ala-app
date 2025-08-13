@@ -6,6 +6,8 @@ const Navbar = () => {
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     const [displayText, setDisplayText] = useState('ALA');
     const [isAnimating, setIsAnimating] = useState(true);
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
     useEffect(() => {
         // Start animation after initial load
@@ -28,6 +30,28 @@ const Navbar = () => {
 
         return () => clearTimeout(timer);
     }, []);
+
+    // Handle scroll behavior for navbar visibility
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            
+            // Show navbar when scrolling up or at the top
+            if (currentScrollY < lastScrollY || currentScrollY < 10) {
+                setIsVisible(true);
+            } 
+            // Hide navbar when scrolling down and past initial threshold
+            else if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+                setIsVisible(false);
+                setIsMobileMenuOpen(false); // Close mobile menu when hiding navbar
+            }
+            
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollY]);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -62,7 +86,9 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 z-50 bg-[#f1faee]/90 backdrop-blur-sm shadow-sm py-4 px-4 md:px-10">
+            <nav className={`fixed top-0 left-0 right-0 z-50 bg-[#f1faee]/90 backdrop-blur-sm shadow-sm py-4 px-4 md:px-10 transition-transform duration-300 ease-in-out ${
+                isVisible ? 'translate-y-0' : '-translate-y-full'
+            }`}>
                 <div className="max-w-7xl h-xl mx-auto p-4 flex items-center justify-between">
                     {/* Logo/Brand */}
                     <div className="flex items-center">
@@ -92,7 +118,7 @@ const Navbar = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="#team" onClick={(e) => handleNavClick(e, 'team')} className="text-[#2c2c2c] font-medium transition-all duration-200 px-4 py-2 rounded-md hover:shadow-md dm-serif-text-regular">
+                            <a href="#footer" onClick={(e) => handleNavClick(e, 'footer')} className="text-[#2c2c2c] font-medium transition-all duration-200 px-4 py-2 rounded-md hover:shadow-md dm-serif-text-regular">
                                 About
                             </a>
                         </li>
@@ -138,8 +164,8 @@ const Navbar = () => {
                         </li>
                         <li>
                             <a 
-                                href="#team" 
-                                onClick={(e) => handleNavClick(e, 'team')}
+                                href="#footer" 
+                                onClick={(e) => handleNavClick(e, 'footer')}
                                 className="block text-[#2c2c2c] font-medium py-3 px-6 hover:bg-[#2c2c2c]/10 transition-colors duration-200 dm-serif-text-regular"
                         >
                                 About
