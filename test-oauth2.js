@@ -47,18 +47,18 @@ async function testOAuth2Setup() {
         const accessToken = await oauth2Helper.getValidAccessToken();
         console.log(`   ✅ Access token obtained: ${accessToken.substring(0, 20)}...`);
 
-        // Test 4: Create transporter
-        console.log('\n4️⃣ Creating nodemailer transporter...');
+        // Test 4: Create Transport
+        console.log('\n4️⃣ Creating nodemailer Transport...');
         const auth = await oauth2Helper.getNodemailerAuth();
-        const transporter = nodemailer.createTransport({
+        const Transport = nodemailer.createTransport({
             service: 'gmail',
             auth: auth
         });
 
-        // Test 5: Verify transporter
-        console.log('\n5️⃣ Verifying transporter connection...');
-        await transporter.verify();
-        console.log('   ✅ Transporter verified successfully');
+        // Test 5: Verify Transport
+        console.log('\n5️⃣ Verifying Transport connection...');
+        await Transport.verify();
+        console.log('   ✅ Transport verified successfully');
 
         // Test 6: Send test email (optional - uncomment to test actual sending)
         /*
@@ -66,7 +66,7 @@ async function testOAuth2Setup() {
         const testMailOptions = {
             from: process.env.GMAIL_USER,
             to: process.env.GMAIL_USER, // Send to yourself for testing
-            subject: 'OAuth2 Test Email - ALA Law Associates',
+            subject: 'OAuth2 Test Email - Alka Law Associates',
             html: `
                 <h2>🎉 OAuth2 Test Successful!</h2>
                 <p>This email confirms that your OAuth2 setup is working correctly.</p>
@@ -75,7 +75,7 @@ async function testOAuth2Setup() {
             `
         };
 
-        const info = await transporter.sendMail(testMailOptions);
+        const info = await Transport.sendMail(testMailOptions);
         console.log(`   ✅ Test email sent successfully: ${info.messageId}`);
         */
 

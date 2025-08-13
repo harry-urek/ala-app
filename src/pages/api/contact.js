@@ -27,56 +27,44 @@ export default async function handler(req, res) {
             // Initialize OAuth2 helper
             const oauth2Helper = new OAuth2Helper();
             
-            // Verify OAuth2 setup
-            const isSetupValid = await oauth2Helper.verifySetup();
-            if (!isSetupValid) {
-                throw new Error('OAuth2 setup is invalid or incomplete');
-            }
-
             // Get OAuth2 authentication configuration
             const auth = await oauth2Helper.getNodemailerAuth();
 
-            // Create nodemailer transporter with OAuth2 for Gmail
-            const transporter = nodemailer.createTransport({
+            // Create nodemailer Transport with OAuth2 for Gmail
+            const Transport = nodemailer.createTransport({
                 service: 'gmail',
-                auth: auth
+                auth: auth,
+                pool: true,
+                maxConnections: 5,
+                maxMessages: 100,
             });
 
-            // Email template for the firm
+            // Simple, fast email templates
             const firmEmailTemplate = `
                 <!DOCTYPE html>
                 <html>
                 <head>
                     <style>
-                        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
                         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                        .header { background-color: #2c3e50; color: white; padding: 20px; text-align: center; }
-                        .content { background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
+                        .header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+                        .content { background: #f9f9f9; padding: 20px; }
                         .field { margin: 15px 0; }
-                        .field strong { color: #2c3e50; }
-                        .message-box { background-color: white; padding: 15px; border-left: 4px solid #3498db; margin: 15px 0; }
+                        .message { background: white; padding: 15px; border-left: 3px solid #3498db; }
                     </style>
                 </head>
                 <body>
                     <div class="container">
                         <div class="header">
-                            <h2>New Contact Form Submission</h2>
-                            <p>ALA Law Associates</p>
+                            <h2>New Contact Inquiry</h2>
+                            <p>Alka Law Associates</p>
                         </div>
                         <div class="content">
-                            <div class="field">
-                                <strong>Name:</strong> ${fullName}
-                            </div>
-                            <div class="field">
-                                <strong>Email:</strong> ${email}
-                            </div>
-                            <div class="field">
-                                <strong>Company:</strong> ${company || 'Not provided'}
-                            </div>
-                            <div class="field">
-                                <strong>Submission Date:</strong> ${new Date().toLocaleString()}
-                            </div>
-                            <div class="message-box">
+                            <div class="field"><strong>Name:</strong> ${fullName}</div>
+                            <div class="field"><strong>Email:</strong> ${email}</div>
+                            <div class="field"><strong>Company:</strong> ${company || 'Not provided'}</div>
+                            <div class="field"><strong>Date:</strong> ${new Date().toLocaleString()}</div>
+                            <div class="message">
                                 <strong>Message:</strong><br>
                                 ${message.replace(/\n/g, '<br>')}
                             </div>
@@ -86,67 +74,55 @@ export default async function handler(req, res) {
                 </html>
             `;
 
-            // Email template for the client confirmation
             const clientEmailTemplate = `
                 <!DOCTYPE html>
                 <html>
                 <head>
                     <style>
-                        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
                         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                        .header { background-color: #2c3e50; color: white; padding: 20px; text-align: center; }
-                        .content { background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
-                        .highlight { background-color: #3498db; color: white; padding: 10px; border-radius: 5px; margin: 15px 0; }
+                        .header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+                        .content { background: #f9f9f9; padding: 20px; }
+                        .highlight { background: #3498db; color: white; padding: 15px; text-align: center; margin: 20px 0; }
                     </style>
                 </head>
                 <body>
                     <div class="container">
                         <div class="header">
-                            <h2>Thank You for Contacting Us</h2>
-                            <p>ALA Law Associates</p>
+                            <h2>Thank You for Your Inquiry</h2>
+                            <p>Alka Law Associates</p>
                         </div>
                         <div class="content">
                             <p>Dear ${fullName},</p>
-                            
-                            <p>Thank you for reaching out to ALA Law Associates. We have received your message and appreciate you taking the time to contact us.</p>
-                            
+                            <p>Thank you for contacting Alka Law Associates. We have received your inquiry and will respond within 24 hours.</p>
                             <div class="highlight">
                                 <strong>We will reach out to you soon!</strong>
                             </div>
-                            
-                            <p>Our team will review your inquiry and get back to you within 24 hours during business days. If your matter is urgent, please don't hesitate to call our office directly.</p>
-                            
-                            <p>Here's a summary of what you sent us:</p>
-                            <ul>
-                                <li><strong>Name:</strong> ${fullName}</li>
-                                <li><strong>Email:</strong> ${email}</li>
-                                <li><strong>Company:</strong> ${company || 'Not provided'}</li>
-                                <li><strong>Date:</strong> ${new Date().toLocaleDateString()}</li>
-                            </ul>
-                            
-                            <p>Best regards,<br>
-                            ALA Law Associates Team</p>
+                            <p>Best regards,<br>The Alka Law Associates Team</p>
                         </div>
                     </div>
                 </body>
                 </html>
             `;
 
-            // Send email to the firm
-            await transporter.sendMail({
-                from: process.env.GMAIL_USER,
-                to: process.env.FIRM_EMAIL || 'alkalawassociates@outlook.com',
-                subject: `New Contact Form Submission from ${fullName}`,
-                html: firmEmailTemplate
-            });
+            // Send both emails in parallel for better performance
+            const emailPromises = [
+                Transport.sendMail({
+                    from: process.env.GMAIL_USER,
+                    to: process.env.FIRM_EMAIL || 'alkalawassociates@outlook.com',
+                    subject: `New Contact Form Submission from ${fullName}`,
+                    html: firmEmailTemplate
+                }),
+                Transport.sendMail({
+                    from: process.env.GMAIL_USER,
+                    to: email,
+                    subject: 'Thank you for contacting Alka Law Associates - We will reach out soon',
+                    html: clientEmailTemplate
+                })
+            ];
 
-            // Send confirmation email to the client
-            await transporter.sendMail({
-                from: process.env.GMAIL_USER,
-                to: email,
-                subject: 'Thank you for contacting ALA Law Associates - We will reach out soon',
-                html: clientEmailTemplate
-            });
+            // Wait for both emails to be sent
+            await Promise.all(emailPromises);
 
             console.log('Contact form submission processed successfully:', {
                 fullName,

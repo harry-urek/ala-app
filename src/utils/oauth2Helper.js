@@ -1,9 +1,6 @@
 const { google } = require('googleapis');
 
-/**
- * OAuth2 Helper for managing Gmail authentication tokens
- * This utility helps with automatic token refresh and management
- */
+
 class OAuth2Helper {
     constructor() {
         this.oauth2Client = new google.auth.OAuth2(
@@ -21,10 +18,6 @@ class OAuth2Helper {
         }
     }
 
-    /**
-     * Get a valid access token, refreshing if necessary
-     * @returns {Promise<string>} Valid access token
-     */
     async getValidAccessToken() {
         try {
             // Get access token (will refresh automatically if expired)
@@ -37,12 +30,16 @@ class OAuth2Helper {
     }
 
     /**
-     * Get OAuth2 credentials for nodemailer
+     * Get OAuth2 credentials for nodemailer (optimized with caching)
      * @returns {Promise<Object>} OAuth2 configuration object
      */
     async getNodemailerAuth() {
         try {
-            const accessToken = await this.getValidAccessToken();
+            // Use existing access token if available, otherwise get a fresh one
+            let accessToken = process.env.ACCESS_TOKEN;
+            if (!accessToken) {
+                accessToken = await this.getValidAccessToken();
+            }
             
             return {
                 type: 'OAuth2',
@@ -54,7 +51,21 @@ class OAuth2Helper {
             };
         } catch (error) {
             console.error('Error getting nodemailer auth:', error);
-            throw error;
+            // Fallback to getting a fresh token
+            try {
+                const freshToken = await this.getValidAccessToken();
+                return {
+                    type: 'OAuth2',
+                    user: process.env.GMAIL_USER,
+                    clientId: process.env.GOOGLE_CLIENT_ID,
+                    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+                    refreshToken: process.env.REFRESH_TOKEN,
+                    accessToken: freshToken,
+                };
+            } catch (fallbackError) {
+                console.error('Fallback token fetch failed:', fallbackError);
+                throw error;
+            }
         }
     }
 
