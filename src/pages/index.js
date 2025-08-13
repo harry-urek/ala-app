@@ -14,7 +14,7 @@ export default function Home() {
         <title>Alka Law Associates - Legal Excellence, Delivered</title>
         <meta name="description" content="ALA is a boutique law firm specializing in Direct and Indirect Taxation, with a strong pan-India presence across all Courts and Tribunals." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
       </Head>
