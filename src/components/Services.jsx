@@ -1,117 +1,279 @@
 
-import React, { useEffect } from 'react';
-import services from '../assets/services';
+import React, { useState } from 'react';
+import Image from 'next/image';
 
 const Services = ({ id }) => {
-    // Enhanced smooth scrolling setup
-    useEffect(() => {
-        // Add custom smooth scrolling behavior for better performance
-        const smoothScrollToElement = (element) => {
-            element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-                inline: 'nearest'
-            });
-        };
+    const [hoveredService, setHoveredService] = useState(null);
 
-        // Enhance existing scroll links if any
-        const scrollLinks = document.querySelectorAll('a[href^="#"]');
-        scrollLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
-                    smoothScrollToElement(target);
+    // Comprehensive service categories with detailed services from the provided list
+    const serviceCategories = [
+        {
+            id: 'taxes',
+            name: 'TAXATION',
+            title: 'Taxes',
+            icon: '/taxes.png',
+            color: 'from-emerald-100 to-emerald-200',
+            hoverColor: 'from-emerald-200 to-emerald-300',
+            textColor: 'text-emerald-800',
+            number: '01',
+            services: [
+                {
+                    name: 'Direct Tax',
+                    details: [
+                        'Litigation before all forums (Supreme Court, High Courts, Tribunals, Tax Authorities)',
+                        'Domestic & international taxation advisory',
+                        'Strategic tax planning & compliance',
+                        'Assistance in assessments, re-assessments, investigations (search & seizure)'
+                    ]
+                },
+                {
+                    name: 'Indirect Tax',
+                    details: [
+                        'GST, Customs, Service Tax, VAT/CST, Excise',
+                        'Representation before Supreme Court, High Courts, Tax Tribunals',
+                        'Advice on ITC eligibility',
+                        'Assistance in assessments & investigations'
+                    ]
                 }
-            });
-        });
-
-        // Intersection Observer for scroll-triggered animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = `${Array.from(entry.target.parentNode.children).indexOf(entry.target) * 100}ms`;
-                    entry.target.classList.add('animate-fade-in-up');
+            ]
+        },
+        {
+            id: 'compliance',
+            name: 'COMPLIANCE',
+            title: 'Compliance',
+            icon: '/Compliance.png',
+            color: 'from-blue-100 to-blue-200',
+            hoverColor: 'from-blue-200 to-blue-300',
+            textColor: 'text-blue-800',
+            number: '02',
+            services: [
+                {
+                    name: 'Benami Law & PMLA',
+                    details: [
+                        'Drafting/responding to notices',
+                        'Representation before IO, ED, AA',
+                        'Challenging attachments via High Court writs'
+                    ]
                 }
-            });
-        }, observerOptions);
-
-        // Observe service cards for staggered animation
-        const serviceCards = document.querySelectorAll('.service-card');
-        serviceCards.forEach(card => observer.observe(card));
-
-        return () => {
-            scrollLinks.forEach(link => {
-                link.removeEventListener('click', smoothScrollToElement);
-            });
-            observer.disconnect();
-        };
-    }, []);
-
-
-
-    const getCategoryColor = (category) => {
-        const colors = {
-            "TAXATION": "bg-[#d6ccc2] text-[#2c2c2c]",
-            "COMPLIANCE": "bg-[#e9c46a] text-[#2c2c2c]", 
-            "LITIGATION": "bg-[#a8dadc] text-[#2c2c2c]",
-            "CORPORATE": "bg-[#f1faee] text-[#2c2c2c]",
-            "COMMERCIAL": "bg-[#f4a261] text-[#2c2c2c]",
-            "IP & TECH": "bg-[#e76f51] text-white",
-            "REGULATORY": "bg-[#2a9d8f] text-white"
-        };
-        return colors[category] || "bg-[#d6ccc2] text-[#2c2c2c]";
-    };
+            ]
+        },
+        {
+            id: 'litigation',
+            name: 'LITIGATION',
+            title: 'Litigation',
+            icon: '/litigation.png',
+            color: 'from-red-100 to-red-200',
+            hoverColor: 'from-red-200 to-red-300',
+            textColor: 'text-red-800',
+            number: '03',
+            services: [
+                {
+                    name: 'Consumer Dispute Redressal',
+                    details: [
+                        'Representation before NCDRC, State Commissions, Supreme Court',
+                        'Drafting complaints, appeals, petitions',
+                        'Challenging execution proceedings in High Court'
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'corporate',
+            name: 'CORPORATE',
+            title: 'Corporate',
+            icon: '/corporate.png',
+            color: 'from-green-100 to-green-200',
+            hoverColor: 'from-green-200 to-green-300',
+            textColor: 'text-green-800',
+            number: '04',
+            services: [
+                {
+                    name: 'Insolvency & Bankruptcy',
+                    details: [
+                        'Resolution plans, settlements',
+                        'Representation before NCLT, NCLAT, Supreme Court'
+                    ]
+                },
+                {
+                    name: 'Mergers, Acquisitions & Competition Law',
+                    details: [
+                        'Strategic counsel on merger control & compliance',
+                        'Due diligence & regulatory approvals'
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'commercial',
+            name: 'COMMERCIAL',
+            title: 'Commercial',
+            icon: '/commercial.png',
+            color: 'from-amber-100 to-amber-200',
+            hoverColor: 'from-amber-200 to-amber-300',
+            textColor: 'text-amber-800',
+            number: '05',
+            services: [
+                {
+                    name: 'Commercial Arbitration',
+                    details: [
+                        'Disputes on compliance, quality, quantity',
+                        'Enforcement of oral agreements, guarantor liabilities'
+                    ]
+                },
+                {
+                    name: 'Negotiable Instrument Act',
+                    details: [
+                        'Section 138 cases',
+                        'Compounding offences under Section 147',
+                        'Handling from Section 251 CrPc notice to cross-examination'
+                    ]
+                },
+                {
+                    name: 'Contract Drafting & Vetting',
+                    details: [
+                        'Pre-drafting to execution',
+                        'Clauses to prevent misinterpretation while retaining flexibility'
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'iptech',
+            name: 'IP & TECH',
+            title: 'IP Tech',
+            icon: '/IPTECH.png',
+            color: 'from-purple-100 to-purple-200',
+            hoverColor: 'from-purple-200 to-purple-300',
+            textColor: 'text-purple-800',
+            number: '06',
+            services: [
+                {
+                    name: 'Intellectual Property Rights',
+                    details: [
+                        'Registration, enforcement, licensing, dispute resolution'
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'regulatory',
+            name: 'REGULATORY',
+            title: 'Regulatory',
+            icon: '/regulatory.png',
+            color: 'from-indigo-100 to-indigo-200',
+            hoverColor: 'from-indigo-200 to-indigo-300',
+            textColor: 'text-indigo-800',
+            number: '07',
+            services: [
+                {
+                    name: 'Legal Advisory on Building Laws & Civic Compliance',
+                    details: [
+                        'Urban development, zoning, and planning disputes',
+                        'Delhi Development Act & municipal governance'
+                    ]
+                }
+            ]
+        }
+    ];
 
     return (
-        <section id={id} className="min-h-screen bg-gradient-to-br from-[#f1faee] to-[#d6ccc2] relative overflow-hidden py-20">
+        <section id={id} className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden py-20">
             <div className="max-w-7xl mx-auto px-4 relative z-10">
                 {/* Section Header */}
-                <div className="mb-20 flex flex-col  justify-between items-center text-center animate-fade-in-up">
-                    <h2 className="text-5xl font-semibold text-[#2c2c2c] mb-6 tracking-tight animate-slide-in-down dm-serif-text-regular">
-                        Our Services
+                <div className="mb-16 text-center">
+                    <h2 className="text-5xl font-semibold text-gray-800 mb-6 tracking-tight dm-serif-text-regular">
+                        Our Legal Services
                     </h2>
-                    <p className="text-xl text-[#666] max-w-5xl mx-auto p-6 font-normal  text-center animate-fade-in animation-delay-300">
-                        Comprehensive legal solutions across multiple practice areas with dedication and expertise
+                    <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                        Comprehensive legal solutions across all practice areas
                     </p>
                 </div>
 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service, index) => (
-                        <div 
-                            key={index}
-                            className="service-card bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-white/30 hover:bg-white/90 transition-all duration-500 hover:-translate-y-2 shadow-lg hover:shadow-xl animate-fade-in-up group"
-                            style={{ animationDelay: `${index * 100}ms` }}
-                        >
-                            {/* Category Tag */}
-                            <div className={`inline-block px-4 py-2 rounded-lg text-sm font-medium mb-6 transition-transform duration-300 group-hover:scale-105 ${getCategoryColor(service.category)}`}>
-                                {service.category}
-                            </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    {serviceCategories.map((category, index) => {
+                        const isHovered = hoveredService === category.id;
+                        
+                        return (
+                            <div
+                                key={category.id}
+                                className={`relative rounded-3xl shadow-lg transition-all duration-700 ease-in-out bg-gradient-to-br group overflow-hidden border border-white/20 cursor-pointer hover:shadow-2xl hover:-translate-y-2 ${
+                                    (isHovered ? category.hoverColor : category.color)
+                                } ${isHovered ? 'p-6 min-h-[500px]' : 'p-8 h-64'}`}
+                                onMouseEnter={() => setHoveredService(category.id)}
+                                onMouseLeave={() => setHoveredService(null)}
+                            >
+                                {/* Background Pattern */}
+                                <div className="absolute inset-0 opacity-5">
+                                    <div className="absolute top-0 right-0 w-24 h-24 bg-white rounded-full transform translate-x-8 -translate-y-8"></div>
+                                    <div className="absolute bottom-0 left-0 w-16 h-16 bg-white rounded-full transform -translate-x-4 translate-y-4"></div>
+                                </div>
 
-                            {/* Service Title */}
-                            <h3 className="text-2xl font-semibold text-[#2c2c2c] mb-6 leading-tight tracking-tight transition-colors duration-300 group-hover:text-[#1a1a1a] dm-serif-text-regular">
-                                {service.name}
-                            </h3>
+                                {/* Number */}
+                                <div className={`absolute top-4 left-4 text-6xl font-bold opacity-10 ${category.textColor}`}>
+                                    {category.number}
+                                </div>
 
-                            {/* Service Details */}
-                            <div className="space-y-3">
-                                {service.details.map((detail, detailIndex) => (
-                                    <p key={detailIndex} className="text-[#666] text-sm leading-relaxed font-normal flex items-start transition-colors duration-300 group-hover:text-[#555]">
-                                        <span className="text-[#d6ccc2] mr-3 mt-1 text-lg transition-colors duration-300 group-hover:text-[#2c2c2c]">•</span>
-                                        <span>{detail}</span>
-                                    </p>
-                                ))}
+                                {/* Content */}
+                                <div className="relative z-10">
+                                    {/* Icon */}
+                                    <div className="flex justify-center mb-6">
+                                        <div className="w-20 h-20 relative group-hover:scale-110 transition-transform duration-300">
+                                            <Image
+                                                src={category.icon}
+                                                alt={category.name}
+                                                fill
+                                                className="object-contain filter drop-shadow-lg"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Category Name */}
+                                    <h3 className={`text-2xl font-bold text-center mb-4 dm-serif-text-regular ${category.textColor}`}>
+                                        {category.title}
+                                    </h3>
+
+                                    {/* Expanded Content on Hover */}
+                                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                                        (isHovered ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0')
+                                    }`}>
+                                        <div className="space-y-3 mt-6 max-h-[500px] overflow-y-auto">
+                                            {category.services.map((service, serviceIndex) => (
+                                                <div key={serviceIndex} className="bg-white/90 rounded-lg p-3 backdrop-blur-sm shadow-sm">
+                                                    <h4 className={`font-semibold mb-2 text-sm ${category.textColor}`}>
+                                                        {service.name}
+                                                    </h4>
+                                                    <ul className="space-y-1">
+                                                        {service.details.map((detail, detailIndex) => (
+                                                            <li key={detailIndex} className="text-xs text-gray-700 flex items-start leading-relaxed">
+                                                                <span className="mr-2 mt-1 text-xs flex-shrink-0">•</span>
+                                                                <span className="flex-1">{detail}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Service Count (hidden) */}
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
+                </div>
+
+                {/* Additional Info */}
+                <div className="mt-16 text-center">
+                    <p className="text-gray-600 max-w-2xl mx-auto">
+                        Hover over each service category to explore our comprehensive offerings and expertise in each practice area.
+                    </p>
                 </div>
             </div>
+
+            {/* Background decorative elements */}
+            <div className="absolute top-1/4 left-10 w-64 h-64 bg-blue-200/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-purple-200/10 rounded-full blur-3xl"></div>
         </section>
     );
 };
