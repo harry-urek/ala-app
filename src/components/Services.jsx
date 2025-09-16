@@ -193,13 +193,12 @@ const Services = ({ id }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {serviceCategories.map((category, index) => {
                         const isHovered = hoveredService === category.id;
-                        
+
                         return (
                             <div
                                 key={category.id}
-                                className={`relative rounded-2xl shadow-md transition-all duration-700 ease-out bg-gradient-to-br group overflow-hidden border border-[#d6ccc2]/30 cursor-pointer hover:shadow-lg hover:-translate-y-1 ${
-                                    (isHovered ? category.hoverColor : category.color)
-                                } ${isHovered ? 'p-6 min-h-[500px]' : 'p-8 h-64'}`}
+                                className={`relative rounded-2xl shadow-md transition-all duration-700 ease-out bg-gradient-to-br group overflow-hidden border border-[#d6ccc2]/30 cursor-pointer hover:shadow-lg hover:-translate-y-1 ${(isHovered ? category.hoverColor : category.color)
+                                    } ${isHovered ? 'p-6 min-h-[500px]' : 'p-8 h-64'}`}
                                 onMouseEnter={() => setHoveredService(category.id)}
                                 onMouseLeave={() => setHoveredService(null)}
                             >
@@ -210,9 +209,8 @@ const Services = ({ id }) => {
                                 </div>
 
                                 {/* Number */}
-                                <div className={`absolute top-4 left-4 text-4xl font-light opacity-20 ${category.textColor} dm-serif-text-regular transition-all duration-700 ease-out ${
-                                    isHovered ? 'scale-90 opacity-10' : 'scale-100 opacity-20'
-                                }`}>
+                                <div className={`absolute top-4 left-4 text-4xl font-light opacity-20 ${category.textColor} dm-serif-text-regular transition-all duration-700 ease-out ${isHovered ? 'scale-90 opacity-10' : 'scale-100 opacity-20'
+                                    }`}>
                                     {category.number}
                                 </div>
 
@@ -220,9 +218,8 @@ const Services = ({ id }) => {
                                 <div className="relative z-10">
                                     {/* Icon */}
                                     <div className="flex justify-center mb-6 transition-all duration-700 ease-out">
-                                        <div className={`w-16 h-16 relative transition-all duration-700 ease-out ${
-                                            isHovered ? 'scale-95 -translate-y-1' : 'scale-100 translate-y-0'
-                                        }`}>
+                                        <div className={`w-16 h-16 relative transition-all duration-700 ease-out ${isHovered ? 'scale-95 -translate-y-1' : 'scale-100 translate-y-0'
+                                            }`}>
                                             <Image
                                                 src={category.icon}
                                                 alt={category.name}
@@ -233,25 +230,22 @@ const Services = ({ id }) => {
                                     </div>
 
                                     {/* Category Name */}
-                                    <h3 className={`text-xl font-semibold text-center mb-4 dm-serif-text-regular ${category.textColor} transition-all duration-700 ease-out ${
-                                        isHovered ? 'transform -translate-y-2 scale-95' : 'transform translate-y-0 scale-100'
-                                    }`}>
+                                    <h3 className={`text-xl font-semibold text-center mb-4 dm-serif-text-regular ${category.textColor} transition-all duration-700 ease-out ${isHovered ? 'transform -translate-y-2 scale-95' : 'transform translate-y-0 scale-100'
+                                        }`}>
                                         {category.title}
                                     </h3>
 
                                     {/* Expanded Content on Hover */}
-                                    <div className={`transition-all duration-800 ease-in-out overflow-hidden ${
-                                        (isHovered ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0')
-                                    }`}>
+                                    <div className={`transition-all duration-800 ease-in-out overflow-hidden ${(isHovered ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0')
+                                        }`}>
                                         <div className="space-y-3 mt-6 max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#d6ccc2] scrollbar-track-transparent">
                                             {category.services.map((service, serviceIndex) => (
-                                                <div 
-                                                    key={serviceIndex} 
-                                                    className={`bg-white/70 rounded-lg p-3 backdrop-blur-sm shadow-sm border border-[#d6ccc2]/20 transition-all duration-700 ease-out ${
-                                                        isHovered ? 'transform translate-y-0 opacity-100' : 'transform translate-y-4 opacity-0'
-                                                    }`}
-                                                    style={{ 
-                                                        transitionDelay: isHovered ? `${serviceIndex * 100}ms` : '0ms' 
+                                                <div
+                                                    key={serviceIndex}
+                                                    className={`bg-white/70 rounded-lg p-3 backdrop-blur-sm shadow-sm border border-[#d6ccc2]/20 transition-all duration-700 ease-out ${isHovered ? 'transform translate-y-0 opacity-100' : 'transform translate-y-4 opacity-0'
+                                                        }`}
+                                                    style={{
+                                                        transitionDelay: isHovered ? `${serviceIndex * 100}ms` : '0ms'
                                                     }}
                                                 >
                                                     <h4 className={`font-medium mb-2 text-sm ${category.textColor} transition-colors duration-500 ease-out`}>

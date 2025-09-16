@@ -37,7 +37,7 @@ const teamMembers = [
       "Insolvency and Consumer Laws Practice"
     ],
     description: "Ms. Pragati Singh is a dynamic Partner who graduated with honors from the prestigious Symbiosis Law School, Pune. She specializes in corporate arbitration, complex litigation, mergers and acquisitions, insolvency proceedings, and consumer law matters. Her strategic approach to legal problem-solving and her ability to handle sophisticated commercial transactions make her an invaluable asset to clients seeking comprehensive legal representation in corporate matters.",
-    image: "/hero.png"
+    image: "profile/pragati.png"
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ const teamMembers = [
       "Specialist in White-collar Crime Defense"
     ],
     description: "Ms. Aditi Kashyap is a skilled associate with a strong academic foundation from Delhi University and three years of practical legal experience. She specializes in commercial litigation, arbitration proceedings, white-collar crime defense, and matrimonial disputes. Her meticulous approach to case preparation and her ability to handle sensitive family matters with empathy and professionalism have earned her recognition among clients and peers alike.",
-    image: "/hero.png"
+    image: "profile/Aditi.png"
   },
   {
     id: 5,
@@ -94,7 +94,7 @@ const teamMembers = [
   {
     id: 8,
     name: "Mr. Keshav Mishra",
-    position: "Junior Associate",
+    position: "Associate",
     qualifications: [
       "LLB (2023)",
       "Civil & Criminal Litigation",
@@ -102,20 +102,20 @@ const teamMembers = [
       "Practice before Delhi Courts"
     ],
     description: "Mr. Keshav Mishra is our promising junior associate who completed his LLB in 2023 and has quickly established himself in civil and criminal litigation. He specializes in intellectual property compliance matters and actively practices before the Delhi Courts. Despite being early in his career, his dedication to legal research, attention to detail, and commitment to client service demonstrate his potential for significant contributions to complex legal matters.",
-    image: "/hero.png"
+    image: "profile/keshav.png"
   },
   {
     id: 9,
     name: "Ms. Versha Jha",
-    position: "Trainee Associate",
+    position: " Associate",
     qualifications: [
       "B.A. LL.B. (Taxation Hons.) from KIIT School of Law (2025)",
       "Direct and Indirect Taxation Focus",
       "Commercial and Civil Litigation Training",
       "Arbitration Practice"
     ],
-    description: "Ms. Versha Jha is our talented trainee associate who completed her B.A. LL.B. (Taxation Hons.) from KIIT School of Law in 2025. With specialized honors in taxation, she focuses on direct and indirect taxation matters, commercial and civil litigation, and arbitration proceedings. Her fresh perspective, combined with strong academic credentials in taxation law, makes her a valuable addition to our tax practice team as she develops her expertise under senior guidance.",
-    image: "/hero.png"
+    description: "Ms. Versha Jha is our talented associate who completed her B.A. LL.B. (Taxation Hons.) from KIIT School of Law in 2025. With specialized honors in taxation, she focuses on direct and indirect taxation matters, commercial and civil litigation, and arbitration proceedings. Her fresh perspective, combined with strong academic credentials in taxation law, makes her a valuable addition to our tax practice team as she develops her expertise under senior guidance.",
+    image: "profile/Versha.png"
   }
 ];
 

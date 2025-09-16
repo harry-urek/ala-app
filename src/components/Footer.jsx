@@ -35,7 +35,7 @@ const Footer = ({ id }) => {
                                 <p className="text-sm text-gray-400">New Delhi, India</p>
                             </div>
                         </div>
-                        
+
                         <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-md">
                             Alka Law Associates (ALA) is a boutique law firm specializing in Direct and
                             Indirect Taxation, with a strong pan-India presence across all Courts and
@@ -45,7 +45,7 @@ const Footer = ({ id }) => {
 
                         {/* Call to Action Button */}
                         <div className="mb-8">
-                            <button 
+                            <button
                                 onClick={openContactModal}
                                 className="bg-[#c4ff61] text-black px-6 py-3 rounded-full font-medium text-sm hover:bg-[#b8ff4d] transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
                             >
@@ -161,7 +161,7 @@ const Footer = ({ id }) => {
                         <p>ALA © 2025</p>
                         <p>Alka Law Associates is a limited liability law firm based in 🇮🇳 New Delhi</p>
                     </div>
-                    
+
                     {/* Team Photos Placeholder */}
                     <div className="flex -space-x-2">
                         <div className="w-8 h-8 bg-gray-700 rounded-full border-2 border-black"></div>
