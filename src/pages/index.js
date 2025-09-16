@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import Services from '../components/Services';
 import TeamMember from '../components/TeamMember';
 import Footer from '../components/Footer';
+import GoogleAnalytics from '../components/GoogleAnalytics';
 import teamMembers from '../assets/teamMembers';
 
 export default function Home() {
@@ -145,6 +146,7 @@ export default function Home() {
 
       <main>
         <Analytics />
+        <GoogleAnalytics ga_id="G-9XCHGTGZ6J" />
 
         {/* Global styles */}
         <Navbar />
