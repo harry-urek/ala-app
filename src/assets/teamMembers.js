@@ -42,20 +42,20 @@ const teamMembers = [
   {
     id: 4,
     name: "Ms. Aditi Kashyap",
-    position: "Associate",
+    position: "Senior Associate",
     qualifications: [
       "Graduate from Delhi University",
       "3 years of litigation experience",
       "Expert in Commercial Litigation",
       "Specialist in White-collar Crime Defense"
     ],
-    description: "Ms. Aditi Kashyap is a skilled associate with a strong academic foundation from Delhi University and three years of practical legal experience. She specializes in commercial litigation, arbitration proceedings, white-collar crime defense, and matrimonial disputes. Her meticulous approach to case preparation and her ability to handle sensitive family matters with empathy and professionalism have earned her recognition among clients and peers alike.",
+    description: "Ms. Aditi Kashyap is a skilled senior associate with a strong academic foundation from Delhi University and three years of practical legal experience. She specializes in commercial litigation, arbitration proceedings, white-collar crime defense, and matrimonial disputes. Her meticulous approach to case preparation and her ability to handle sensitive family matters with empathy and professionalism have earned her recognition among clients and peers alike.",
     image: "profile/Aditi.png"
   },
   {
     id: 5,
     name: "Ms. Aishwarya Singh",
-    position: "Associate",
+    position: "Senior Associate",
     qualifications: [
       "LLB from KLE Society's Law College, Bengaluru",
       "Corporate and Civil Litigation Expert",
@@ -81,7 +81,7 @@ const teamMembers = [
   {
     id: 7,
     name: "Mr. Malav Goswami",
-    position: "Tax Associate",
+    position: "Senior Tax Associate",
     qualifications: [
       "B.Com (Hons.) from Delhi University",
       "Bachelor of Laws (LLB)",

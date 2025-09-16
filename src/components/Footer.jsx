@@ -126,6 +126,16 @@ const Footer = ({ id }) => {
                                     <span>alkalawassociates@outlook.com</span>
                                 </a>
                             </div>
+                            <div className="hover:text-white transition-colors cursor-pointer group">
+                                <div className="flex items-start gap-2">
+                                    <span className="text-sm mt-1 flex-shrink-0">📍</span>
+                                    <div className="text-sm leading-relaxed min-w-0">
+                                        <div className="font-bold text-white whitespace-nowrap">M/s ALKA LAW ASSOCIATES</div>
+                                        <div className="font-semibold whitespace-nowrap">G-60, East of Kailash</div>
+                                        <div className="font-semibold whitespace-nowrap">New Delhi - 110065</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Call to Action */}
@@ -140,7 +150,7 @@ const Footer = ({ id }) => {
                 </div>
 
                 {/* Social Media Links */}
-                <div className="flex flex-wrap gap-6 mb-12">
+                {/* <div className="flex flex-wrap gap-6 mb-12">
                     <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                         LinkedIn
                     </a>
@@ -153,13 +163,13 @@ const Footer = ({ id }) => {
                     <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                         Instagram
                     </a>
-                </div>
+                </div> */}
 
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div className="flex flex-col md:flex-row gap-4 md:gap-8 text-gray-500 text-sm">
                         <p>ALA © 2025</p>
-                        <p>Alka Law Associates is a limited liability law firm based in 🇮🇳 New Delhi</p>
+                        <p>Alka Law Associates is a partnership firm based in 🇮🇳 New Delhi</p>
                     </div>
 
                     {/* Team Photos Placeholder */}

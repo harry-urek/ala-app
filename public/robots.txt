@@ -1,0 +1,34 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://alkalawassociates.com/sitemap.xml
+
+# Allow crawling of important pages
+Allow: /
+Allow: /services
+Allow: /team
+Allow: /contact
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Allow specific search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Contact information
+# Contact: alkalawassociates@outlook.com
+# Address: G-60, East of Kailash, New Delhi - 110065, India
