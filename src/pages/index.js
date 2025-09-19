@@ -55,7 +55,7 @@ export default function Home() {
         {/* Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        
+
         {/* Google Analytics */}
         <GoogleAnalytics ga_id="G-9XCHGTGZ6J" />
 
@@ -149,7 +149,7 @@ export default function Home() {
 
       <main>
         <Analytics />
-        
+
         {/* Global styles */}
         <Navbar />
         <Hero id="home" />

@@ -11,7 +11,7 @@ const teamMembers = [
       "Telecom and Fertilizer Sector Advisory"
     ],
     description: "Mr. Punit Dutt Tyagi brings over three decades of exceptional legal expertise to our firm. As a Senior Partner, he specializes in complex corporate and commercial law matters, with particular strength in both international and domestic arbitration. His extensive experience in the telecom and fertilizer sectors makes him a sought-after advisor for regulatory compliance and strategic business decisions. His deep understanding of commercial disputes and arbitration procedures has helped numerous clients navigate complex legal challenges successfully.",
-    image: "/hero.png"
+    image: "profile/punit.png"
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const teamMembers = [
       "8+ years of diversified legal experience"
     ],
     description: "Mrs. Smriti Sahay is a highly qualified legal professional with a unique combination of CA, CS, and LLM credentials. She appears before the Delhi High Court, Supreme Court, and various tribunals, handling complex matters related to taxation (direct, indirect, PMLA, benami), corporate laws, and constitutional issues. Her expertise extends to NCLT/NCLAT proceedings under IBC, consumer disputes up to NCDRC, and civil recovery matters. Her multidisciplinary background enables her to provide comprehensive legal solutions with a strong foundation in financial and corporate governance.",
-    image: "/hero.png"
+    image: "profile/smriti.png"
   },
   {
     id: 3,
@@ -63,7 +63,7 @@ const teamMembers = [
       "Company Law and Banking Law Practice"
     ],
     description: "Ms. Aishwarya Singh is a versatile legal professional who graduated from KLE Society's Law College, Bengaluru. She brings expertise in corporate and civil litigation, taxation matters, arbitration, company law, and banking law. Her comprehensive understanding of corporate governance and regulatory compliance, combined with her litigation skills, makes her particularly effective in handling complex business disputes and ensuring legal compliance for corporate clients.",
-    image: "/hero.png"
+    image: "profile/ashwariya.png"
   },
   {
     id: 6,
@@ -76,7 +76,7 @@ const teamMembers = [
       "Expert in Regulatory Compliance"
     ],
     description: "Mr. Saurav Sharma combines his CS and LLB qualifications with over eight years of specialized experience in consumer grievances, commercial disputes, and indirect taxation. He regularly appears before SEBI, SAT, RERA, DRT, DRAT, and NGT, making him exceptionally well-versed in regulatory matters across multiple sectors. His expertise in navigating complex regulatory frameworks and his track record in consumer protection makes him a trusted advisor for businesses seeking compliance solutions.",
-    image: "/hero.png"
+    image: "profile/saurav.png"
   },
   {
     id: 7,
@@ -89,7 +89,7 @@ const teamMembers = [
       "Expert in Tax Litigation"
     ],
     description: "Mr. Malav Goswami brings a strong foundation in commerce and law, having completed his B.Com (Hons.) and LLB from Delhi University. He specializes in direct taxation matters, tax litigation, and departmental proceedings. His combination of commercial acumen and legal expertise enables him to provide strategic tax planning advice while effectively representing clients in complex tax disputes and assessments before various tax authorities.",
-    image: "/hero.png"
+    image: "profile/malav.png"
   },
   {
     id: 8,
@@ -101,7 +101,7 @@ const teamMembers = [
       "Intellectual Property Compliance",
       "Practice before Delhi Courts"
     ],
-    description: "Mr. Keshav Mishra is our promising junior associate who completed his LLB in 2023 and has quickly established himself in civil and criminal litigation. He specializes in intellectual property compliance matters and actively practices before the Delhi Courts. Despite being early in his career, his dedication to legal research, attention to detail, and commitment to client service demonstrate his potential for significant contributions to complex legal matters.",
+    description: "Mr. Keshav Mishra is our promising associate who completed his LLB in 2023 and has quickly established himself in civil and criminal litigation. He specializes in intellectual property compliance matters and actively practices before the Delhi Courts. Despite being early in his career, his dedication to legal research, attention to detail, and commitment to client service demonstrate his potential for significant contributions to complex legal matters.",
     image: "profile/keshav.png"
   },
   {
