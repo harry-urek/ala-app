@@ -29,9 +29,9 @@ const TeamMemberCard = ({ name, position, qualifications, description, image, re
                             </h4>
                             <div className="space-y-2 max-[760px]:space-y-1.5">
                                 {qualifications.map((qual, index) => (
-                                    <p key={index} className="text-base text-[#666] newsreader-medium leading-relaxed max-[760px]:text-base max-[760px]:leading-snug transition-colors duration-300 hover:text-[#555] flex items-start">
-                                        <span className="text-[#d6ccc2] mr-2 mt-1 text-sm">•</span>
-                                        <span className='pl-1 pb-0.5 max-[760px]:pl-0'>{qual}</span>
+                                    <p key={index} className="text-base text-[#666] newsreader-medium leading-relaxed max-[760px]:text-base max-[760px]:leading-relaxed transition-colors duration-300 hover:text-[#555] flex items-start">
+                                        <span className="text-[#d6ccc2] mr-2 mt-0.5 text-sm flex-shrink-0">•</span>
+                                        <span className='pl-1 pb-0.5 max-[760px]:pl-0 flex-1'>{qual}</span>
                                     </p>
                                 ))}
                             </div>
