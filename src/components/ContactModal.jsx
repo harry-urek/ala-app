@@ -7,7 +7,7 @@ const ContactModal = ({ isOpen, onClose }) => {
         company: '',
         message: ''
     });
-    
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
@@ -25,7 +25,7 @@ const ContactModal = ({ isOpen, onClose }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Basic validation
         if (!formData.fullName || !formData.email || !formData.message) {
             setSubmitStatus('error');
@@ -38,7 +38,7 @@ const ContactModal = ({ isOpen, onClose }) => {
         try {
             // Use relative URL for API calls - works in both development and production
             const apiUrl = '/api/contact';
-            
+
             const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
@@ -102,44 +102,44 @@ const ContactModal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div 
-            className="fixed inset-0 bg-[#2c2c2c]/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in"
+        <div
+            className="fixed inset-0 bg-[#2c2c2c]/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 max-[760px]:p-2 animate-fade-in"
             onClick={handleOverlayClick}
         >
-            <div className="bg-gradient-to-br from-[#f1faee] to-[#f5ebe0] rounded-2xl p-8 w-full max-w-4xl max-h-[90vh] overflow-y-auto animate-fade-in-up shadow-2xl border border-[#d6ccc2]/20">
+            <div className="bg-gradient-to-br from-[#f1faee] to-[#f5ebe0] rounded-2xl max-[760px]:rounded-xl p-8 max-[760px]:p-4 w-full max-w-4xl max-h-[90vh] overflow-y-auto animate-fade-in-up shadow-2xl border border-[#d6ccc2]/20">
                 {/* Header */}
-                <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center justify-between mb-5 max-[760px]:mb-3">
                     <div className="flex items-center">
-                        <div className="w-3 h-3 bg-[#e76f51] rounded-full mr-3"></div>
-                        <h2 className="text-xl font-medium text-[#2c2c2c] dm-serif-text-regular">Get in Touch</h2>
+                        <div className="w-3 h-3 max-[760px]:w-2 max-[760px]:h-2 bg-[#e76f51] rounded-full mr-3 max-[760px]:mr-2"></div>
+                        <h2 className="text-xl max-[760px]:text-base font-medium text-[#2c2c2c] dm-serif-text-regular">Get in Touch</h2>
                     </div>
                     <button
                         onClick={onClose}
-                        className="w-10 h-10 rounded-full border-2 border-[#d6ccc2] bg-white/50 flex items-center justify-center hover:bg-[#e76f51] hover:border-[#e76f51] hover:text-white transition-all duration-300 group"
+                        className="w-10 h-10 max-[760px]:w-8 max-[760px]:h-8 rounded-full border-2 border-[#d6ccc2] bg-white/50 flex items-center justify-center hover:bg-[#e76f51] hover:border-[#e76f51] hover:text-white transition-all duration-300 group"
                         aria-label="Close modal"
                     >
-                        <span className="text-[#2c2c2c] text-2xl font-bold pb-0.5 group-hover:text-white transition-colors duration-300">×</span>
+                        <span className="text-[#2c2c2c] text-2xl max-[760px]:text-xl font-bold pb-0.5 group-hover:text-white transition-colors duration-300">×</span>
                     </button>
                 </div>
 
                 {/* Main Title */}
-                <h1 className="text-4xl font-normal text-[#2c2c2c] mb-2 leading-tight dm-serif-text-regular">
-                    Have a legal matter 
+                <h1 className="text-4xl max-[760px]:text-xl font-normal text-[#2c2c2c] mb-2 max-[760px]:mb-1 leading-tight dm-serif-text-regular">
+                    Have a legal matter
                     <em className="italic dm-serif-text-regular-italic">   you'd like to discuss ?</em>
                 </h1>
-                
-                <p className="text-[#666] text-xl pt-4 mb-8  leading-relaxed eb-garamond-400-reg">
+
+                <p className="text-[#666] text-xl max-[760px]:text-xs pt-4 max-[760px]:pt-2 mb-8 max-[760px]:mb-4 leading-relaxed max-[760px]:leading-normal eb-garamond-400-reg">
                     We're here to provide you with expert legal guidance and personalized solutions.
                 </p>
 
                 {/* Status Messages */}
                 {submitStatus === 'success' && (
-                    <div className="mb-6 p-4 bg-green-50 border-2 border-green-200 rounded-lg">
+                    <div className="mb-6 max-[760px]:mb-3 p-4 max-[760px]:p-2 bg-green-50 border-2 border-green-200 rounded-lg">
                         <div className="flex items-center">
-                            <svg className="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 max-[760px]:w-4 max-[760px]:h-4 text-green-600 mr-3 max-[760px]:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
-                            <p className="text-green-800 font-medium eb-garamond-600-reg">
+                            <p className="text-green-800 font-medium eb-garamond-600-reg text-sm max-[760px]:text-xs">
                                 Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
                             </p>
                         </div>
@@ -147,12 +147,12 @@ const ContactModal = ({ isOpen, onClose }) => {
                 )}
 
                 {submitStatus === 'error' && (
-                    <div className="mb-6 p-4 bg-red-50 border-2 border-red-200 rounded-lg">
+                    <div className="mb-6 max-[760px]:mb-3 p-4 max-[760px]:p-2 bg-red-50 border-2 border-red-200 rounded-lg">
                         <div className="flex items-center">
-                            <svg className="w-5 h-5 text-red-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 max-[760px]:w-4 max-[760px]:h-4 text-red-600 mr-3 max-[760px]:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                             </svg>
-                            <p className="text-red-800 font-medium eb-garamond-600-reg">
+                            <p className="text-red-800 font-medium eb-garamond-600-reg text-sm max-[760px]:text-xs">
                                 There was an error sending your message. Please try again or contact us directly.
                             </p>
                         </div>
@@ -160,14 +160,14 @@ const ContactModal = ({ isOpen, onClose }) => {
                 )}
 
                 {/* Divider */}
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-[#d6ccc2] to-transparent mb-8"></div>
+                <div className="w-full h-px bg-gradient-to-r from-transparent via-[#d6ccc2] to-transparent mb-8 max-[760px]:mb-4"></div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-6 text-lg eb-garamond-600-reg">
+                <form onSubmit={handleSubmit} className="space-y-6 max-[760px]:space-y-3 text-lg max-[760px]:text-sm eb-garamond-600-reg">
                     {/* Name and Email Row */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-[760px]:gap-3">
                         <div>
-                            <label className="block text-[#2c2c2c]  mb-2  pl-1 ">
+                            <label className="block text-[#2c2c2c] mb-2 max-[760px]:mb-1 pl-1 max-[760px]:text-xs">
                                 Full Name *
                             </label>
                             <input
@@ -176,13 +176,13 @@ const ContactModal = ({ isOpen, onClose }) => {
                                 value={formData.fullName}
                                 onChange={handleInputChange}
                                 placeholder="Enter your full name"
-                                className="w-full px-4 py-3 bg-white/70 border-2 border-[#d6ccc2]/30 rounded-lg text-[#2c2c2c] placeholder-[#999] focus:outline-none focus:border-[#e76f51] focus:bg-white transition-all duration-300 eb-garamond-400-reg"
+                                className="w-full px-4 py-3 max-[760px]:px-3 max-[760px]:py-2 max-[760px]:text-xs bg-white/70 border-2 border-[#d6ccc2]/30 rounded-lg text-[#2c2c2c] placeholder-[#999] focus:outline-none focus:border-[#e76f51] focus:bg-white transition-all duration-300 eb-garamond-400-reg"
                                 required
                                 disabled={isSubmitting}
                             />
                         </div>
                         <div>
-                            <label className="block text-[#2c2c2c]  mb-2  pl-1">
+                            <label className="block text-[#2c2c2c] mb-2 max-[760px]:mb-1 pl-1 max-[760px]:text-xs">
                                 Email Address *
                             </label>
                             <input
@@ -191,7 +191,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                                 value={formData.email}
                                 onChange={handleInputChange}
                                 placeholder="Enter your email"
-                                className="w-full px-4 py-3 bg-white/70 border-2 border-[#d6ccc2]/30 rounded-lg text-[#2c2c2c] placeholder-[#999] focus:outline-none focus:border-[#e76f51] focus:bg-white transition-all duration-300 eb-garamond-400-reg"
+                                className="w-full px-4 py-3 max-[760px]:px-3 max-[760px]:py-2 max-[760px]:text-xs bg-white/70 border-2 border-[#d6ccc2]/30 rounded-lg text-[#2c2c2c] placeholder-[#999] focus:outline-none focus:border-[#e76f51] focus:bg-white transition-all duration-300 eb-garamond-400-reg"
                                 required
                                 disabled={isSubmitting}
                             />
@@ -200,7 +200,7 @@ const ContactModal = ({ isOpen, onClose }) => {
 
                     {/* Company */}
                     <div>
-                        <label className="block text-[#2c2c2c]  mb-2 pl-1 eb-garamond-600-reg">
+                        <label className="block text-[#2c2c2c] mb-2 max-[760px]:mb-1 pl-1 max-[760px]:text-xs eb-garamond-600-reg">
                             Company/Organization
                         </label>
                         <input
@@ -209,14 +209,14 @@ const ContactModal = ({ isOpen, onClose }) => {
                             value={formData.company}
                             onChange={handleInputChange}
                             placeholder="Enter company name (optional)"
-                            className="w-full px-4 py-3 bg-white/70 border-2 border-[#d6ccc2]/30 rounded-lg text-[#2c2c2c] placeholder-[#999] focus:outline-none focus:border-[#e76f51] focus:bg-white transition-all duration-300 eb-garamond-400-reg"
+                            className="w-full px-4 py-3 max-[760px]:px-3 max-[760px]:py-2 max-[760px]:text-xs bg-white/70 border-2 border-[#d6ccc2]/30 rounded-lg text-[#2c2c2c] placeholder-[#999] focus:outline-none focus:border-[#e76f51] focus:bg-white transition-all duration-300 eb-garamond-400-reg"
                             disabled={isSubmitting}
                         />
                     </div>
 
                     {/* Message */}
                     <div>
-                        <label className="block text-[#2c2c2c] pl-1 mb-2 ">
+                        <label className="block text-[#2c2c2c] pl-1 mb-2 max-[760px]:mb-1 max-[760px]:text-xs">
                             Tell us about your legal matter *
                         </label>
                         <textarea
@@ -225,37 +225,36 @@ const ContactModal = ({ isOpen, onClose }) => {
                             onChange={handleInputChange}
                             placeholder="Please describe your legal matter in detail so we can better assist you..."
                             rows={5}
-                            className="w-full px-4 py-3 bg-white/70 border-2 border-[#d6ccc2]/30 rounded-lg text-[#2c2c2c] placeholder-[#999] focus:outline-none focus:border-[#e76f51] focus:bg-white transition-all duration-300 resize-none eb-garamond-400-reg"
+                            className="w-full px-4 py-3 max-[760px]:px-3 max-[760px]:py-2 max-[760px]:text-xs bg-white/70 border-2 border-[#d6ccc2]/30 rounded-lg text-[#2c2c2c] placeholder-[#999] focus:outline-none focus:border-[#e76f51] focus:bg-white transition-all duration-300 resize-none eb-garamond-400-reg"
                             required
                             disabled={isSubmitting}
                         ></textarea>
                     </div>
 
                     {/* Submit Button */}
-                    <div className="pt-4">
+                    <div className="pt-4 max-[760px]:pt-2">
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="relative px-10 py-4 bg-gradient-to-r from-[#2c2c2c] to-[#1a1a1a] text-white rounded-xl font-medium group shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 overflow-hidden dm-serif-text-regular text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                        >
+                            className="relative px-10 py-4 max-[760px]:px-6 max-[760px]:py-3 max-[760px]:text-sm bg-gradient-to-r from-[#2c2c2c] to-[#1a1a1a] text-white rounded-xl font-medium group shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 overflow-hidden dm-serif-text-regular text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
                             {/* Background animation overlay */}
                             <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] to-[#0d0d0d] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                            
+
                             {/* Button content */}
                             <div className="relative flex items-center justify-center">
                                 {isSubmitting ? (
                                     <>
-                                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3"></div>
+                                        <div className="w-5 h-5 max-[760px]:w-4 max-[760px]:h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-3 max-[760px]:mr-2"></div>
                                         <span>Sending...</span>
                                     </>
                                 ) : (
                                     <>
-                                        <div className="w-2.5 h-2.5 bg-[#d6ccc2] rounded-full mr-3 group-hover:bg-white group-hover:animate-pulse transition-colors duration-300"></div>
+                                        <div className="w-2.5 h-2.5 max-[760px]:w-2 max-[760px]:h-2 bg-[#d6ccc2] rounded-full mr-3 max-[760px]:mr-2 group-hover:bg-white group-hover:animate-pulse transition-colors duration-300"></div>
                                         <span>Send Message</span>
-                                        <svg 
-                                            className="w-5 h-5 ml-3 transform group-hover:translate-x-1 transition-transform duration-300" 
-                                            fill="none" 
-                                            stroke="currentColor" 
+                                        <svg
+                                            className="w-5 h-5 max-[760px]:w-4 max-[760px]:h-4 ml-3 max-[760px]:ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
+                                            fill="none"
+                                            stroke="currentColor"
                                             viewBox="0 0 24 24"
                                         >
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -263,13 +262,13 @@ const ContactModal = ({ isOpen, onClose }) => {
                                     </>
                                 )}
                             </div>
-                            
+
                             {/* Shine effect */}
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                         </button>
-                        
-                        <p className="text-sm text-[#666] mt-4 eb-garamond-400-reg flex items-center pt-4">
-                            <svg className="w-4 h-4 mr-2 text-[#2c2c2c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                        <p className="text-sm max-[760px]:text-xs text-[#666] mt-4 max-[760px]:mt-2 eb-garamond-400-reg flex items-center pt-4 max-[760px]:pt-2">
+                            <svg className="w-4 h-4 max-[760px]:w-3 max-[760px]:h-3 mr-2 text-[#2c2c2c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             We'll get back to you within 24 hours during business days.

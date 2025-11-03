@@ -12,31 +12,31 @@ const Footer = ({ id }) => {
         setIsContactModalOpen(false);
     };
     return (
-        <footer id={id} className="bg-black text-white py-20 relative overflow-hidden">
+        <footer id={id} className="bg-black text-white py-20 max-[760px]:py-10 relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-0 left-1/4 w-32 h-32 bg-white rounded-full blur-xl"></div>
-                <div className="absolute bottom-0 right-1/3 w-24 h-24 bg-white rounded-full blur-lg"></div>
+                <div className="absolute top-0 left-1/4 w-32 h-32 bg-white rounded-full blur-xl max-[760px]:w-20 max-[760px]:h-20"></div>
+                <div className="absolute bottom-0 right-1/3 w-24 h-24 bg-white rounded-full blur-lg max-[760px]:w-16 max-[760px]:h-16"></div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-8 relative z-10">
+            <div className="max-w-7xl mx-auto px-8 max-[760px]:px-4 relative z-10">
                 {/* Main Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 mb-16">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 max-[760px]:gap-8 mb-16 max-[760px]:mb-8">
                     {/* Company Info - Takes 2 columns */}
                     <div className="lg:col-span-2">
                         {/* Logo Section */}
-                        <div className="mb-12">
-                            <div className="text-5xl font-black text-white mb-4 dm-serif-text-regular tracking-tight">
+                        <div className="mb-12 max-[760px]:mb-6">
+                            <div className="text-5xl max-[760px]:text-3xl font-black text-white mb-4 max-[760px]:mb-2 dm-serif-text-regular tracking-tight">
                                 ALA
                             </div>
-                            <div className="text-gray-300 space-y-2 mb-8">
-                                <p className="text-lg font-medium dm-serif-text-regular">Alka Law Associates</p>
-                                <p className="text-sm dm-serif-text-regular-italic text-gray-400">Legal Excellence, Delivered</p>
-                                <p className="text-sm text-gray-400">New Delhi, India</p>
+                            <div className="text-gray-300 space-y-2 max-[760px]:space-y-1 mb-8 max-[760px]:mb-4">
+                                <p className="text-lg max-[760px]:text-base font-medium dm-serif-text-regular">Alka Law Associates</p>
+                                <p className="text-sm max-[760px]:text-xs dm-serif-text-regular-italic text-gray-400">Legal Excellence, Delivered</p>
+                                <p className="text-sm max-[760px]:text-xs text-gray-400">New Delhi, India</p>
                             </div>
                         </div>
 
-                        <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-md">
+                        <p className="text-gray-400 text-sm max-[760px]:text-xs leading-relaxed max-[760px]:leading-normal mb-8 max-[760px]:mb-4 max-w-md">
                             Alka Law Associates (ALA) is a boutique law firm specializing in Direct and
                             Indirect Taxation, with a strong pan-India presence across all Courts and
                             Tribunals. ALA also provides solicitor services, including briefing senior
@@ -44,13 +44,12 @@ const Footer = ({ id }) => {
                         </p>
 
                         {/* Call to Action Button */}
-                        <div className="mb-8">
+                        <div className="mb-8 max-[760px]:mb-4">
                             <button
                                 onClick={openContactModal}
-                                className="bg-[#c4ff61] text-black px-6 py-3 rounded-full font-medium text-sm hover:bg-[#b8ff4d] transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
-                            >
+                                className="bg-[#c4ff61] text-black px-6 py-3 max-[760px]:px-4 max-[760px]:py-2 rounded-full font-medium text-sm max-[760px]:text-xs hover:bg-[#b8ff4d] transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
                                 Get Legal Consultation
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-4 h-4 max-[760px]:w-3 max-[760px]:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </button>
@@ -59,8 +58,8 @@ const Footer = ({ id }) => {
 
                     {/* Services Column */}
                     <div className="lg:col-span-1">
-                        <h4 className="text-lg font-semibold mb-8 text-white dm-serif-text-regular">Services</h4>
-                        <ul className="space-y-4 text-gray-400 text-sm">
+                        <h4 className="text-lg max-[760px]:text-base font-semibold mb-8 max-[760px]:mb-4 text-white dm-serif-text-regular">Services</h4>
+                        <ul className="space-y-4 max-[760px]:space-y-2 text-gray-400 text-sm max-[760px]:text-xs">
                             <li className="hover:text-white transition-colors cursor-pointer hover:translate-x-1 transform transition-all duration-200">
                                 Corporate & Allied Law
                             </li>
@@ -84,8 +83,8 @@ const Footer = ({ id }) => {
 
                     {/* Practice Areas Column */}
                     <div className="lg:col-span-1">
-                        <h4 className="text-lg font-semibold mb-8 text-white dm-serif-text-regular">Practice Areas</h4>
-                        <ul className="space-y-4 text-gray-400 text-sm">
+                        <h4 className="text-lg max-[760px]:text-base font-semibold mb-8 max-[760px]:mb-4 text-white dm-serif-text-regular">Practice Areas</h4>
+                        <ul className="space-y-4 max-[760px]:space-y-2 text-gray-400 text-sm max-[760px]:text-xs">
                             <li className="hover:text-white transition-colors cursor-pointer hover:translate-x-1 transform transition-all duration-200">
                                 Direct Tax
                             </li>
@@ -106,33 +105,33 @@ const Footer = ({ id }) => {
 
                     {/* Contact Column */}
                     <div className="lg:col-span-1">
-                        <h4 className="text-lg font-semibold mb-8 text-white dm-serif-text-regular">Contact</h4>
-                        <div className="space-y-4 text-gray-400 text-sm">
+                        <h4 className="text-lg max-[760px]:text-base font-semibold mb-8 max-[760px]:mb-4 text-white dm-serif-text-regular">Contact</h4>
+                        <div className="space-y-4 max-[760px]:space-y-2 text-gray-400 text-sm max-[760px]:text-xs">
                             <div className="hover:text-white transition-colors cursor-pointer group">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-xs">📞</span>
+                                    <span className="text-xs max-[760px]:text-[10px]">📞</span>
                                     <span>+91 93543 76719</span>
                                 </div>
                             </div>
                             <div className="hover:text-white transition-colors cursor-pointer group">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-xs">📞</span>
+                                    <span className="text-xs max-[760px]:text-[10px]">📞</span>
                                     <span>+91 83406 39137</span>
                                 </div>
                             </div>
                             <div className="hover:text-white transition-colors cursor-pointer group">
                                 <a href="mailto:alkalawassociates@outlook.com" className="flex items-center gap-2">
-                                    <span className="text-xs">📧</span>
-                                    <span>alkalawassociates@outlook.com</span>
+                                    <span className="text-xs max-[760px]:text-[10px]">📧</span>
+                                    <span className="break-all">alkalawassociates@outlook.com</span>
                                 </a>
                             </div>
                             <div className="hover:text-white transition-colors cursor-pointer group">
                                 <div className="flex items-start gap-2">
-                                    <span className="text-sm mt-1 flex-shrink-0">📍</span>
-                                    <div className="text-sm leading-relaxed min-w-0">
-                                        <div className="font-bold text-white whitespace-nowrap">M/s ALKA LAW ASSOCIATES</div>
-                                        <div className="font-semibold whitespace-nowrap">G-60, East of Kailash</div>
-                                        <div className="font-semibold whitespace-nowrap">New Delhi - 110065</div>
+                                    <span className="text-sm max-[760px]:text-xs mt-1 flex-shrink-0">📍</span>
+                                    <div className="text-sm max-[760px]:text-xs leading-relaxed max-[760px]:leading-snug min-w-0">
+                                        <div className="font-bold text-white max-[760px]:text-xs">M/s ALKA LAW ASSOCIATES</div>
+                                        <div className="font-semibold max-[760px]:text-xs">G-60, East of Kailash</div>
+                                        <div className="font-semibold max-[760px]:text-xs">New Delhi - 110065</div>
                                     </div>
                                 </div>
                             </div>
@@ -166,14 +165,14 @@ const Footer = ({ id }) => {
                 </div> */}
 
                 {/* Bottom Bar */}
-                <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                    <div className="flex flex-col md:flex-row gap-4 md:gap-8 text-gray-500 text-sm">
+                <div className="border-t border-gray-800 pt-8 max-[760px]:pt-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 max-[760px]:gap-2">
+                    <div className="flex flex-col md:flex-row gap-4 md:gap-8 max-[760px]:gap-2 text-gray-500 text-sm max-[760px]:text-xs">
                         <p>ALA © 2025</p>
-                        <p>Alka Law Associates is a partnership firm based in 🇮🇳 New Delhi</p>
+                        <p className="max-[760px]:text-[10px]">Alka Law Associates is a partnership firm based in 🇮🇳 New Delhi</p>
                     </div>
 
                     {/* Team Photos Placeholder */}
-                    <div className="flex -space-x-2">
+                    <div className="flex -space-x-2 max-[760px]:hidden">
                         <div className="w-8 h-8 bg-gray-700 rounded-full border-2 border-black"></div>
                         <div className="w-8 h-8 bg-gray-600 rounded-full border-2 border-black"></div>
                         <div className="w-8 h-8 bg-gray-500 rounded-full border-2 border-black"></div>
@@ -186,7 +185,7 @@ const Footer = ({ id }) => {
 
             {/* Large Brand Name at Bottom */}
             <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
-                <div className="text-[12rem] md:text-[16rem] font-black text-white/5 leading-none tracking-tighter dm-serif-text-regular">
+                <div className="text-[12rem] md:text-[16rem] max-[760px]:text-[6rem] font-black text-white/5 leading-none tracking-tighter dm-serif-text-regular">
                     ALA
                 </div>
             </div>

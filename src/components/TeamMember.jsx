@@ -12,29 +12,29 @@ const TeamMember = ({ id, teamMembers = [] }) => {
                     <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-[#d6ccc2]/20 rounded-full blur-2xl animate-pulse-subtle animation-delay-600"></div>
                 </div>
                 {/* Section Heading */}
-                <div className=" mx-auto px-15 pt-24 pb-16 max-[760px]:px-4 max-[760px]:pt-16 max-[760px]:pb-12 animate-fade-in-up relative z-10">
+                <div className="  px-12 pt-12 pb-16 max-[760px]:px-4 max-[760px]:pt-12 max-[760px]:pb-8 animate-fade-in-up relative z-10">
                     <div className="text-center">
                         {/* Subtitle */}
-                        <p className="text-2xl eb-garamond-600-italic text-[#666] font-medium tracking-wide mb-8 pb-8 animate-fade-in animation-delay-200 max-[760px]:text-base">
+                        <p className="text-2xl text-center eb-garamond-600-italic text-[#666] font-medium tracking-wide mb-8 animate-fade-in animation-delay-200 max-[760px]:text-base max-[760px]:mb-8">
                             Excellence in Legal Practice
                         </p>
-                
+
                         {/* Main Title */}
-                        <h1 className="text-7xl font-semibold text-[#2c2c2c] leading-tight tracking-tight mb-4 pb-8 max-[760px]:text-4xl max-[760px]:mb-4 animate-slide-in-down">
+                        <h1 className="text-7xl font-semibold text-[#2c2c2c] text-center leading-tight tracking-tight mb-6 max-[760px]:text-4xl max-[760px]:mb-4 animate-slide-in-down">
                             MEET OUR TEAM
                         </h1>
-                
+
                         {/* Enhanced Decorative Line */}
-                        <div className="flex items-center justify-center mb-8 animate-fade-in animation-delay-400">
+                        <div className="flex items-center justify-center mb-6 max-[760px]:mb-4 animate-fade-in animation-delay-400">
                             <div className="w-16 h-0.5 bg-[#2c2c2c]/30"></div>
                             <div className="w-8 h-8 mx-4 bg-gradient-to-br from-[#2c2c2c] to-[#555] rounded-full flex items-center justify-center">
                                 <div className="w-3 h-3 bg-[#f5ebe0] rounded-full"></div>
                             </div>
                             <div className="w-16 h-0.5 bg-[#2c2c2c]/30"></div>
                         </div>
-                
+
                         {/* Description */}
-                        <p className="text-xl text-[#666] max-w-4xl mx-auto leading-relaxed font-normal animate-fade-in animation-delay-500 max-[760px]:text-lg max-[760px]:px-4">
+                        <p className="text-xl text-[#666] max-w-5xl mx-auto leading-relaxed text-justify font-normal animate-fade-in animation-delay-500 max-[760px]:text-base max-[760px]:px-2 max-[760px]:text-justify max-[760px]:max-w-full">
                             Our distinguished team of legal professionals brings decades of combined experience
                             across diverse practice areas, committed to delivering exceptional legal solutions.
                         </p>
@@ -51,7 +51,7 @@ const TeamMember = ({ id, teamMembers = [] }) => {
                             >
                                 {/* Background accent for each card */}
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-3xl blur-xl"></div>
-                
+
                                 <TeamMemberCard
                                     name={member.name}
                                     position={member.position}
@@ -60,7 +60,7 @@ const TeamMember = ({ id, teamMembers = [] }) => {
                                     image={member.image}
                                     reverse={index % 2 === 1}
                                 />
-                
+
                                 {/* Separator between team members (except last) */}
                                 {index < teamMembers.length - 1 && (
                                     <div className="flex justify-center my-14 max-[760px]:my-8">
