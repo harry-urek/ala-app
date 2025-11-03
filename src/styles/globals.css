@@ -87,6 +87,14 @@
     /* Internet Explorer 10+ */
   }
 
+  /* Mobile-specific scroll padding */
+  @media (max-width: 760px) {
+    html {
+      scroll-padding-top: 60px;
+      /* Smaller offset for mobile navbar */
+    }
+  }
+
   /* Hide scrollbar for webkit browsers */
   html::-webkit-scrollbar {
     display: none;

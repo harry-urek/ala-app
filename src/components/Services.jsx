@@ -177,39 +177,39 @@ const Services = ({ id }) => {
     ];
 
     return (
-        <section id={id} className="min-h-screen bg-gradient-to-br from-[#f8f9fa] to-[#f5ebe0] relative overflow-hidden py-20 md:pt-32">
-            <div className="max-w-7xl mx-auto px-4 relative z-10">
+        <section id={id} className="min-h-screen bg-gradient-to-br from-[#f8f9fa] to-[#f5ebe0] relative overflow-hidden py-20 md:pt-32 max-[760px]:py-12">
+            <div className="max-w-7xl mx-auto px-4 max-[760px]:px-3 relative z-10">
                 {/* Section Header */}
-                <div className="mb-16 text-center">
-                    <h2 className="text-5xl font-semibold text-[#2c2c2c] mb-6 tracking-tight dm-serif-text-regular">
+                <div className="mb-16 max-[760px]:mb-8 text-center">
+                    <h2 className="text-5xl font-semibold text-[#2c2c2c] mb-6 max-[760px]:text-3xl max-[760px]:mb-3 tracking-tight dm-serif-text-regular">
                         Our Legal Services
                     </h2>
-                    <p className="text-xl text-[#666] max-w-4xl mx-auto leading-relaxed">
+                    <p className="text-xl text-[#666] max-w-4xl mx-auto leading-relaxed max-[760px]:text-sm max-[760px]:leading-normal max-[760px]:px-2">
                         Comprehensive legal solutions across all practice areas
                     </p>
                 </div>
 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-[760px]:gap-4">
                     {serviceCategories.map((category, index) => {
                         const isHovered = hoveredService === category.id;
 
                         return (
                             <div
                                 key={category.id}
-                                className={`relative rounded-2xl shadow-md transition-all duration-700 ease-out bg-gradient-to-br group overflow-hidden border border-[#d6ccc2]/30 cursor-pointer hover:shadow-lg hover:-translate-y-1 ${(isHovered ? category.hoverColor : category.color)
-                                    } ${isHovered ? 'p-6 min-h-[500px]' : 'p-8 h-64'}`}
+                                className={`relative rounded-2xl shadow-md transition-all duration-700 ease-out bg-gradient-to-br group overflow-hidden border border-[#d6ccc2]/30 cursor-pointer hover:shadow-lg hover:-translate-y-1 max-[760px]:rounded-xl ${(isHovered ? category.hoverColor : category.color)
+                                    } ${isHovered ? 'p-6 min-h-[500px] max-[760px]:p-4 max-[760px]:min-h-[400px]' : 'p-8 h-64 max-[760px]:p-5 max-[760px]:h-48'}`}
                                 onMouseEnter={() => setHoveredService(category.id)}
                                 onMouseLeave={() => setHoveredService(null)}
                             >
                                 {/* Background Pattern */}
                                 <div className="absolute inset-0 opacity-5 transition-opacity duration-700 ease-out">
-                                    <div className="absolute top-0 right-0 w-16 h-16 bg-[#2c2c2c] rounded-full transform translate-x-6 -translate-y-6 transition-transform duration-700 ease-out"></div>
-                                    <div className="absolute bottom-0 left-0 w-12 h-12 bg-[#2c2c2c] rounded-full transform -translate-x-3 translate-y-3 transition-transform duration-700 ease-out"></div>
+                                    <div className="absolute top-0 right-0 w-16 h-16 max-[760px]:w-10 max-[760px]:h-10 bg-[#2c2c2c] rounded-full transform translate-x-6 -translate-y-6 max-[760px]:translate-x-4 max-[760px]:-translate-y-4 transition-transform duration-700 ease-out"></div>
+                                    <div className="absolute bottom-0 left-0 w-12 h-12 max-[760px]:w-8 max-[760px]:h-8 bg-[#2c2c2c] rounded-full transform -translate-x-3 translate-y-3 max-[760px]:-translate-x-2 max-[760px]:translate-y-2 transition-transform duration-700 ease-out"></div>
                                 </div>
 
                                 {/* Number */}
-                                <div className={`absolute top-4 left-4 text-4xl font-light opacity-20 ${category.textColor} dm-serif-text-regular transition-all duration-700 ease-out ${isHovered ? 'scale-90 opacity-10' : 'scale-100 opacity-20'
+                                <div className={`absolute top-4 left-4 max-[760px]:top-3 max-[760px]:left-3 text-4xl max-[760px]:text-2xl font-light opacity-20 ${category.textColor} dm-serif-text-regular transition-all duration-700 ease-out ${isHovered ? 'scale-90 opacity-10' : 'scale-100 opacity-20'
                                     }`}>
                                     {category.number}
                                 </div>
@@ -217,8 +217,8 @@ const Services = ({ id }) => {
                                 {/* Content */}
                                 <div className="relative z-10">
                                     {/* Icon */}
-                                    <div className="flex justify-center mb-6 transition-all duration-700 ease-out">
-                                        <div className={`w-16 h-16 relative transition-all duration-700 ease-out ${isHovered ? 'scale-95 -translate-y-1' : 'scale-100 translate-y-0'
+                                    <div className="flex justify-center mb-6 max-[760px]:mb-4 transition-all duration-700 ease-out">
+                                        <div className={`w-16 h-16 max-[760px]:w-12 max-[760px]:h-12 relative transition-all duration-700 ease-out ${isHovered ? 'scale-95 -translate-y-1' : 'scale-100 translate-y-0'
                                             }`}>
                                             <Image
                                                 src={category.icon}
@@ -230,7 +230,7 @@ const Services = ({ id }) => {
                                     </div>
 
                                     {/* Category Name */}
-                                    <h3 className={`text-xl font-semibold text-center mb-4 dm-serif-text-regular ${category.textColor} transition-all duration-700 ease-out ${isHovered ? 'transform -translate-y-2 scale-95' : 'transform translate-y-0 scale-100'
+                                    <h3 className={`text-xl max-[760px]:text-base font-semibold text-center mb-4 max-[760px]:mb-3 dm-serif-text-regular ${category.textColor} transition-all duration-700 ease-out ${isHovered ? 'transform -translate-y-2 scale-95' : 'transform translate-y-0 scale-100'
                                         }`}>
                                         {category.title}
                                     </h3>
@@ -238,23 +238,23 @@ const Services = ({ id }) => {
                                     {/* Expanded Content on Hover */}
                                     <div className={`transition-all duration-800 ease-in-out overflow-hidden ${(isHovered ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0')
                                         }`}>
-                                        <div className="space-y-3 mt-6 max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#d6ccc2] scrollbar-track-transparent">
+                                        <div className="space-y-3 max-[760px]:space-y-2 mt-6 max-[760px]:mt-4 max-h-[500px] max-[760px]:max-h-[300px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#d6ccc2] scrollbar-track-transparent">
                                             {category.services.map((service, serviceIndex) => (
                                                 <div
                                                     key={serviceIndex}
-                                                    className={`bg-white/70 rounded-lg p-3 backdrop-blur-sm shadow-sm border border-[#d6ccc2]/20 transition-all duration-700 ease-out ${isHovered ? 'transform translate-y-0 opacity-100' : 'transform translate-y-4 opacity-0'
+                                                    className={`bg-white/70 rounded-lg p-3 max-[760px]:p-2 backdrop-blur-sm shadow-sm border border-[#d6ccc2]/20 transition-all duration-700 ease-out ${isHovered ? 'transform translate-y-0 opacity-100' : 'transform translate-y-4 opacity-0'
                                                         }`}
                                                     style={{
                                                         transitionDelay: isHovered ? `${serviceIndex * 100}ms` : '0ms'
                                                     }}
                                                 >
-                                                    <h4 className={`font-medium mb-2 text-sm ${category.textColor} transition-colors duration-500 ease-out`}>
+                                                    <h4 className={`font-medium mb-2 max-[760px]:mb-1 text-sm max-[760px]:text-xs ${category.textColor} transition-colors duration-500 ease-out`}>
                                                         {service.name}
                                                     </h4>
-                                                    <ul className="space-y-1">
+                                                    <ul className="space-y-1 max-[760px]:space-y-0.5">
                                                         {service.details.map((detail, detailIndex) => (
-                                                            <li key={detailIndex} className="text-xs text-[#666] flex items-start leading-relaxed transition-colors duration-500 ease-out">
-                                                                <span className="mr-2 mt-1 text-xs flex-shrink-0 text-[#2c2c2c] transition-colors duration-500 ease-out">•</span>
+                                                            <li key={detailIndex} className="text-xs max-[760px]:text-[10px] text-[#666] flex items-start leading-relaxed max-[760px]:leading-snug transition-colors duration-500 ease-out">
+                                                                <span className="mr-2 mt-1 text-xs max-[760px]:text-[10px] flex-shrink-0 text-[#2c2c2c] transition-colors duration-500 ease-out">•</span>
                                                                 <span className="flex-1">{detail}</span>
                                                             </li>
                                                         ))}
@@ -272,8 +272,8 @@ const Services = ({ id }) => {
                 </div>
 
                 {/* Additional Info */}
-                <div className="mt-16 text-center">
-                    <p className="text-[#666] text-lg">
+                <div className="mt-16 max-[760px]:mt-8 text-center">
+                    <p className="text-[#666] text-lg max-[760px]:text-xs max-[760px]:px-2">
                         Hover over each service category to explore our comprehensive offerings
                     </p>
                 </div>
