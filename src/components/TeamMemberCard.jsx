@@ -7,7 +7,7 @@ const TeamMemberCard = ({ name, position, qualifications, description, image, re
             <div className="flex-1 max-w-4xl py-10 px-11 pb-6 max-[760px]:max-w-full max-[760px]:py-6 max-[760px]:px-5 max-[760px]:text-left animate-fade-in-left bg-[#f5f5dc]/60 backdrop-blur-sm rounded-2xl border border-[#f5f5dc]/80 shadow-lg hover:shadow-xl transition-all duration-500 hover:bg-[#f5f5dc]/70">
                 <div className="mb-16 max-[760px]:mb-6">
                     {/* Name with enhanced styling */}
-                    <h2 className="text-5xl font-normal pt-5 text-[#2c2c2c] leading-tight mb-2.5 tracking-tight max-[760px]:text-2xl max-[760px]:mb-2 max-[760px]:pt-2 transition-colors duration-300 p-2 max-[760px]:p-0 hover:text-[#1a1a1a] relative newsreader-medium">
+                    <h2 className="text-5xl font-normal pt-5 text-[#2c2c2c] leading-tight mb-2.5 tracking-tight max-[760px]:text-3xl max-[760px]:mb-2 max-[760px]:pt-2 transition-colors duration-300 p-2 max-[760px]:p-0 hover:text-[#1a1a1a] relative newsreader-medium">
                         {name}
                         {/* <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-[#2c2c2c] to-transparent max-[760px]:mx-auto max-[760px]:left-1/2 max-[760px]:-translate-x-1/2"></div> */}
                     </h2>
@@ -15,7 +15,7 @@ const TeamMemberCard = ({ name, position, qualifications, description, image, re
                     {/* Position with icon */}
                     <div className="flex items-center pl-2 max-[760px]:justify-start mb-8 max-[760px]:mb-4 max-[760px]:pl-0">
                         <div className="w-2 h-2 bg-[#d6ccc2] rounded-full mr-2 max-[760px]:hidden"></div>
-                        <h3 className="text-2xl p-1.5 text-[#666] eb-garamond-600-italic max-[760px]:text-lg max-[760px]:p-0 transition-colors duration-300 hover:text-[#555']">
+                        <h3 className="text-2xl p-1.5 text-[#666] eb-garamond-600-italic max-[760px]:text-xl max-[760px]:p-0 transition-colors duration-300 hover:text-[#555']">
                             {position}
                         </h3>
                     </div>
@@ -23,13 +23,13 @@ const TeamMemberCard = ({ name, position, qualifications, description, image, re
                     {/* Qualifications Section with enhanced styling */}
                     {qualifications && (
                         <div className="mb-8 max-[760px]:mb-4 animate-fade-in animation-delay-200 bg-[#f5ebe0]/50 rounded-xl p-4 pt-2 max-[760px]:p-3">
-                            <h4 className="text-[22px] eb-garamond-600-reg font- text-[#2c2c2c] pb-2 p-1.5 mb-3 max-[760px]:text-lg max-[760px]:mb-2 max-[760px]:pb-1 max-[760px]:p-0 flex items-center">
+                            <h4 className="text-[22px] eb-garamond-600-reg font- text-[#2c2c2c] pb-2 p-1.5 mb-3 max-[760px]:text-xl max-[760px]:mb-2 max-[760px]:pb-1 max-[760px]:p-0 flex items-center">
                                 {/* <span className="w-1.5 h-1.5 bg-[#2c2c2c] rounded-full mr-2"></span> */}
                                 Qualifications
                             </h4>
                             <div className="space-y-2 max-[760px]:space-y-1.5">
                                 {qualifications.map((qual, index) => (
-                                    <p key={index} className="text-base text-[#666] newsreader-medium leading-relaxed max-[760px]:text-sm max-[760px]:leading-snug transition-colors duration-300 hover:text-[#555] flex items-start">
+                                    <p key={index} className="text-base text-[#666] newsreader-medium leading-relaxed max-[760px]:text-base max-[760px]:leading-snug transition-colors duration-300 hover:text-[#555] flex items-start">
                                         <span className="text-[#d6ccc2] mr-2 mt-1 text-sm">•</span>
                                         <span className='pl-1 pb-0.5 max-[760px]:pl-0'>{qual}</span>
                                     </p>
@@ -40,7 +40,7 @@ const TeamMemberCard = ({ name, position, qualifications, description, image, re
 
                     {/* Description with enhanced styling */}
                     <div className="relative">
-                        <p className="text-xl text-[#666] leading-relaxed eb-garamond-400-reg max-[760px]:text-sm max-[760px]:leading-normal animate-fade-in animation-delay-400 transition-colors text-balance text-justify duration-300 hover:text-[#555] pl-5 max-[760px]:pl-0 border-l-2 max-[760px]:border-l-0 p-2 max-[760px]:p-0 border-[#d6ccc2]/50">
+                        <p className="text-xl text-[#666] leading-relaxed eb-garamond-400-reg max-[760px]:text-base max-[760px]:leading-normal animate-fade-in animation-delay-400 transition-colors text-balance text-justify duration-300 hover:text-[#555] pl-5 max-[760px]:pl-0 border-l-2 max-[760px]:border-l-0 p-2 max-[760px]:p-0 border-[#d6ccc2]/50">
                             {description}
                         </p>
                     </div>

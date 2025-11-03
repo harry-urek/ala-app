@@ -9,7 +9,7 @@ const Hero = ({ id }) => {
                     {/* Brand Name */}
                     <div className="flex flex-col mb-15 max-[760px]:mb-6">
                         <span className="text-5xl font-semibold text-[#2c2c2c] leading-tight tracking-tight max-[760px]:text-2xl max-[760px]:leading-snug animate-slide-in-left dm-serif-text-regular">
-                            ALKA LAW ASSOCIATES 
+                            ALKA LAW ASSOCIATES
                         </span>
                     </div>
 

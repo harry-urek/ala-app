@@ -7,7 +7,7 @@ const ContactModal = ({ isOpen, onClose }) => {
         company: '',
         message: ''
     });
-    
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
@@ -25,7 +25,7 @@ const ContactModal = ({ isOpen, onClose }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Basic validation
         if (!formData.fullName || !formData.email || !formData.message) {
             setSubmitStatus('error');
@@ -38,7 +38,7 @@ const ContactModal = ({ isOpen, onClose }) => {
         try {
             // Use relative URL for API calls - works in both development and production
             const apiUrl = '/api/contact';
-            
+
             const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
@@ -102,7 +102,7 @@ const ContactModal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div 
+        <div
             className="fixed inset-0 bg-[#2c2c2c]/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 max-[760px]:p-2 animate-fade-in"
             onClick={handleOverlayClick}
         >
@@ -124,10 +124,10 @@ const ContactModal = ({ isOpen, onClose }) => {
 
                 {/* Main Title */}
                 <h1 className="text-4xl max-[760px]:text-xl font-normal text-[#2c2c2c] mb-2 max-[760px]:mb-1 leading-tight dm-serif-text-regular">
-                    Have a legal matter 
+                    Have a legal matter
                     <em className="italic dm-serif-text-regular-italic">   you'd like to discuss ?</em>
                 </h1>
-                
+
                 <p className="text-[#666] text-xl max-[760px]:text-xs pt-4 max-[760px]:pt-2 mb-8 max-[760px]:mb-4 leading-relaxed max-[760px]:leading-normal eb-garamond-400-reg">
                     We're here to provide you with expert legal guidance and personalized solutions.
                 </p>
@@ -239,7 +239,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                             className="relative px-10 py-4 max-[760px]:px-6 max-[760px]:py-3 max-[760px]:text-sm bg-gradient-to-r from-[#2c2c2c] to-[#1a1a1a] text-white rounded-xl font-medium group shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 overflow-hidden dm-serif-text-regular text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
                             {/* Background animation overlay */}
                             <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] to-[#0d0d0d] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                            
+
                             {/* Button content */}
                             <div className="relative flex items-center justify-center">
                                 {isSubmitting ? (
@@ -251,10 +251,10 @@ const ContactModal = ({ isOpen, onClose }) => {
                                     <>
                                         <div className="w-2.5 h-2.5 max-[760px]:w-2 max-[760px]:h-2 bg-[#d6ccc2] rounded-full mr-3 max-[760px]:mr-2 group-hover:bg-white group-hover:animate-pulse transition-colors duration-300"></div>
                                         <span>Send Message</span>
-                                        <svg 
-                                            className="w-5 h-5 max-[760px]:w-4 max-[760px]:h-4 ml-3 max-[760px]:ml-2 transform group-hover:translate-x-1 transition-transform duration-300" 
-                                            fill="none" 
-                                            stroke="currentColor" 
+                                        <svg
+                                            className="w-5 h-5 max-[760px]:w-4 max-[760px]:h-4 ml-3 max-[760px]:ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
+                                            fill="none"
+                                            stroke="currentColor"
                                             viewBox="0 0 24 24"
                                         >
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -262,11 +262,11 @@ const ContactModal = ({ isOpen, onClose }) => {
                                     </>
                                 )}
                             </div>
-                            
+
                             {/* Shine effect */}
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                         </button>
-                        
+
                         <p className="text-sm max-[760px]:text-xs text-[#666] mt-4 max-[760px]:mt-2 eb-garamond-400-reg flex items-center pt-4 max-[760px]:pt-2">
                             <svg className="w-4 h-4 max-[760px]:w-3 max-[760px]:h-3 mr-2 text-[#2c2c2c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
