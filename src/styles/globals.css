@@ -90,7 +90,8 @@
   /* Mobile-specific scroll padding */
   @media (max-width: 760px) {
     html {
-      scroll-padding-top: 60px;
+      /* Use a CSS variable for scroll-padding-top, set dynamically via JS */
+      scroll-padding-top: var(--navbar-height, 60px);
       /* Smaller offset for mobile navbar */
     }
   }
