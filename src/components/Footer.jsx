@@ -114,12 +114,6 @@ const Footer = ({ id }) => {
                                 </div>
                             </div>
                             <div className="hover:text-white transition-colors cursor-pointer group">
-                                <div className="flex items-center gap-2">
-                                    <span className="text-xs max-[760px]:text-[10px]">📞</span>
-                                    <span>+91 83406 39137</span>
-                                </div>
-                            </div>
-                            <div className="hover:text-white transition-colors cursor-pointer group">
                                 <a href="mailto:alkalawassociates@outlook.com" className="flex items-center gap-2">
                                     <span className="text-xs max-[760px]:text-[10px]">📧</span>
                                     <span className="break-all">alkalawassociates@outlook.com</span>

@@ -33,7 +33,6 @@ export const seoData = {
             addressCountry: 'IN'
         },
         phone: '+91-93543-76719',
-        alternatePhone: '+91-83406-39137',
         email: 'alkalawassociates@outlook.com',
         coordinates: {
             latitude: 28.5494,
@@ -96,13 +95,6 @@ export const generateStructuredData = (pageType = 'homepage', additionalData = {
             {
                 "@type": "ContactPoint",
                 "telephone": seoData.businessInfo.phone,
-                "contactType": "customer service",
-                "areaServed": "IN",
-                "availableLanguage": ["English", "Hindi"]
-            },
-            {
-                "@type": "ContactPoint",
-                "telephone": seoData.businessInfo.alternatePhone,
                 "contactType": "customer service",
                 "areaServed": "IN",
                 "availableLanguage": ["English", "Hindi"]
