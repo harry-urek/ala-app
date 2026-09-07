@@ -64,7 +64,7 @@ export default function Document() {
               <p>This website requires JavaScript to function properly.</p>
               <p>Please enable JavaScript in your browser settings.</p>
               <p>Contact us at: +91 93543 76719 | alkalawassociates@outlook.com</p>
-              <p>Address: G-60, East of Kailash, New Delhi - 110065</p>
+              <p>Address: 142, L.G.F, Kailash Hills, East of Kailash, New Delhi - 110065</p>
             </div>
           </div>
         </noscript>

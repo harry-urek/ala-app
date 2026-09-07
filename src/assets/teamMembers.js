@@ -27,19 +27,6 @@ const teamMembers = [
     image: "profile/smriti.png"
   },
   {
-    id: 3,
-    name: "Ms. Pragati Singh",
-    position: "Partner",
-    qualifications: [
-      "B.A.LLB (Hons.) from Symbiosis Law School, Pune",
-      "Expert in Corporate Arbitration",
-      "Specialist in Mergers & Acquisitions",
-      "Insolvency and Consumer Laws Practice"
-    ],
-    description: "Ms. Pragati Singh is a dynamic Partner who graduated with honors from the prestigious Symbiosis Law School, Pune. She specializes in corporate arbitration, complex litigation, mergers and acquisitions, insolvency proceedings, and consumer law matters. Her strategic approach to legal problem-solving and her ability to handle sophisticated commercial transactions make her an invaluable asset to clients seeking comprehensive legal representation in corporate matters.",
-    image: "profile/pragati.png"
-  },
-  {
     id: 4,
     name: "Ms. Aditi Kashyap",
     position: "Senior Associate",

@@ -130,7 +130,8 @@ const Footer = ({ id }) => {
                                     <span className="text-sm max-[760px]:text-xs mt-1 flex-shrink-0">📍</span>
                                     <div className="text-sm max-[760px]:text-xs leading-relaxed max-[760px]:leading-snug min-w-0">
                                         <div className="font-bold text-white max-[760px]:text-xs">M/s ALKA LAW ASSOCIATES</div>
-                                        <div className="font-semibold max-[760px]:text-xs">G-60, East of Kailash</div>
+                                        <div className="font-semibold max-[760px]:text-xs">142, L.G.F, Kailash Hills</div>
+                                        <div className="font-semibold max-[760px]:text-xs">East of Kailash</div>
                                         <div className="font-semibold max-[760px]:text-xs">New Delhi - 110065</div>
                                     </div>
                                 </div>

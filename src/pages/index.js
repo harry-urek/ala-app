@@ -73,7 +73,7 @@ export default function Home() {
               "description": "Premier partnership law firm specializing in Direct and Indirect Taxation, Corporate Law, Litigation, and Regulatory Compliance with pan-India presence.",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "G-60, East of Kailash",
+                "streetAddress": "142, L.G.F, Kailash Hills, East of Kailash",
                 "addressLocality": "New Delhi",
                 "postalCode": "110065",
                 "addressCountry": "IN"

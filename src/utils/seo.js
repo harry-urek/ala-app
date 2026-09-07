@@ -27,7 +27,7 @@ export const seoData = {
         name: 'M/s Alka Law Associates',
         alternateName: 'ALA',
         address: {
-            streetAddress: 'G-60, East of Kailash',
+            streetAddress: '142, L.G.F, Kailash Hills, East of Kailash',
             addressLocality: 'New Delhi',
             postalCode: '110065',
             addressCountry: 'IN'

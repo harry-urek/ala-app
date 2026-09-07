@@ -31,4 +31,4 @@ Allow: /
 
 # Contact information
 # Contact: alkalawassociates@outlook.com
-# Address: G-60, East of Kailash, New Delhi - 110065, India
+# Address: 142, L.G.F, Kailash Hills, East of Kailash, New Delhi - 110065, India
